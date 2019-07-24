@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "971754271431",
+    "firebase_url": "https://lookmacapstone.firebaseio.com",
+    "project_id": "lookmacapstone",
+    "storage_bucket": "lookmacapstone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971754271431:android:d77c17b53a1b2f9c",
+        "android_client_info": {
+          "package_name": "com.paulentine.android.capstone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971754271431-29930dhn1gr4flfms79cvq5b5c16pp9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrD55vFcXvhbPTkgX2qdTXcRxutbXtHPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971754271431-29930dhn1gr4flfms79cvq5b5c16pp9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
