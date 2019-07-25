@@ -15,6 +15,10 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.paulentine.android.capstone.model.Recipe;
+import com.paulentine.android.capstone.model.Step;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewRecipeActivity extends AppCompatActivity {
     private EditText editTextId;
@@ -57,7 +61,12 @@ public class NewRecipeActivity extends AppCompatActivity {
 
         CollectionReference recipesRef = FirebaseFirestore.getInstance()
                 .collection("recipes");
-        recipesRef.add(new Recipe(id, title, readyInMinutes, servings));
+        // Fake list of steps
+        List<Step> fakeSteps = new ArrayList<Step>();
+        fakeSteps.add(new Step(1, "Turn on oven"));
+        fakeSteps.add(new Step(2, "Turn off oven"));
+        fakeSteps.add(new Step(3, "Drink water"));
+        recipesRef.add(new Recipe(id, title, readyInMinutes, servings, fakeSteps));
         Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();
     }

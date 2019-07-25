@@ -47,6 +47,8 @@ public class RecipeDetailActivity extends AppCompatActivity implements
     private TextView mTitleView;
     private TextView mReadyInMinutesView;
     private TextView mServingsView;
+    private TextView mStepsView;
+
     private ViewGroup mEmptyView;
     private RecyclerView mRatingsRecycler;
 
@@ -73,7 +75,8 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mIdView = findViewById(R.id.recipe_item_id);
         mTitleView = findViewById(R.id.recipe_item_title);
         mReadyInMinutesView = findViewById((R.id.recipe_item_ready_in_minutes));
-        mServingsView = findViewById((R.id.recipe_item_servings));
+        mServingsView = findViewById(R.id.recipe_item_servings);
+        mStepsView = findViewById(R.id.recipe_item_steps);
         mEmptyView = findViewById(R.id.view_empty_ratings);
         mRatingsRecycler = findViewById(R.id.recycler_ratings);
         

@@ -65,6 +65,7 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
         TextView titleView;
         TextView readyInMinutesView;
         TextView servingsView;
+
 //        ImageView imageView;
 
 //        ImageView imageView;
