@@ -19,7 +19,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.paulentine.android.capstone.model.Recipe;
-import com.paulentine.android.capstone.util.RecipeUtil;
+//import com.paulentine.android.capstone.util.RecipeUtil;
 import com.google.firebase.firestore.Query;
 
 /**
@@ -37,7 +37,7 @@ public class Filters {
 
     public static Filters getDefault() {
         Filters filters = new Filters();
-        filters.setSortBy(Recipe.FIELD_AVG_RATING);
+        filters.setSortBy(Recipe.FIELD_TITLE);
         filters.setSortDirection(Query.Direction.DESCENDING);
 
         return filters;
@@ -127,7 +127,7 @@ public class Filters {
         if (price > 0) {
             desc.append(" for ");
             desc.append("<b>");
-            desc.append(RecipeUtil.getPriceString(price));
+//            desc.append(RecipeUtil.getPriceString(price));
             desc.append("</b>");
         }
 
@@ -135,12 +135,12 @@ public class Filters {
     }
 
     public String getOrderDescription(Context context) {
-        if (Recipe.FIELD_PRICE.equals(sortBy)) {
-            return context.getString(R.string.sorted_by_price);
-        } else if (Recipe.FIELD_POPULARITY.equals(sortBy)) {
-            return context.getString(R.string.sorted_by_popularity);
+        if (Recipe.FIELD_SERVINGS.equals(sortBy)) {
+            return context.getString(R.string.sorted_by_servings);
+        } else if (Recipe.FIELD_READY_IN_MINUTES.equals(sortBy)) {
+            return context.getString(R.string.sorted_by_time);
         } else {
-            return context.getString(R.string.sorted_by_rating);
+            return context.getString(R.string.sorted_by_title);
         }
     }
 }

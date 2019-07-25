@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,34 +27,24 @@ public class NewRecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_recipe);
 
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24px);
-        setTitle("Add Note");
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24px);
+//        setTitle("Add Recipe");
 
         editTextId = findViewById(R.id.edit_text_id);
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextReadyInMinutes = findViewById(R.id.edit_text_ready_in_minutes);
         editTextServings = findViewById(R.id.edit_text_servings);
+
+        final Button mSaveButton = findViewById(R.id.recipe_button_save);
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveRecipe();
+            }
+        });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.new_recipe_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.save_recipe:
-                saveNote();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void saveNote() {
+    private void saveRecipe() {
         int id = Integer.parseInt(editTextId.getText().toString());
         String title = editTextTitle.getText().toString();
         int readyInMinutes = Integer.parseInt(editTextReadyInMinutes.getText().toString());
@@ -62,10 +55,37 @@ public class NewRecipeActivity extends AppCompatActivity {
             return;
         }
 
-        CollectionReference recipeBookRef = FirebaseFirestore.getInstance()
-                .collection("RecipeBook");
-        recipeBookRef.add(new Recipe(id, title, readyInMinutes, servings));
+        CollectionReference recipesRef = FirebaseFirestore.getInstance()
+                .collection("recipes");
+        recipesRef.add(new Recipe(id, title, readyInMinutes, servings));
         Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();
     }
 }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater menuInflater = getMenuInflater();
+//        menuInflater.inflate(R.menu.new_recipe_menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.save_recipe:
+//                saveRecipe();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//    }
+//    public boolean onSaveButtonClicked(Button button) {
+//        switch (button.getItemId()) {
+//            case R.id.save_recipe:
+//                saveRecipe();
+//                return true;
+//            default:
+//                return super.onSaveButtonClicked(button);
+//        }
+//    }

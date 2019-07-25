@@ -32,83 +32,85 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:layout_alignLeft="@+id/recipe_name"
+            android:layout_alignLeft="@+id/recipe_item_title"
             android:layout_marginTop="16dp"
             app:srcCompat="@drawable/ic_close_white_24px" />
 
         <TextView
-            android:id="@+id/recipe_name"
+            android:id="@+id/recipe_item_title"
             style="@style/AppTheme.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/recipe_rating"
+            android:layout_above="@+id/recipe_item_ready_in_minutes"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             tools:text="Some Recipe" />
 
-        <me.zhanghai.android.materialratingbar.MaterialRatingBar
-            android:id="@+id/recipe_rating"
-            style="@style/Widget.MaterialRatingBar.RatingBar.Indicator"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_above="@+id/recipe_category"
-            android:layout_alignLeft="@+id/recipe_name"
-            app:mrb_progressTint="@android:color/white"
-            app:mrb_secondaryProgressTint="@android:color/white" />
-
         <TextView
-            android:id="@+id/recipe_num_ratings"
-            style="@style/AppTheme.Body1"
-            android:layout_width="wrap_content"
+            android:id="@+id/recipe_item_ready_in_minutes"
+            style="@style/AppTheme.Subheader"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/recipe_rating"
-            android:layout_alignTop="@+id/recipe_rating"
-            android:layout_marginLeft="4dp"
-            android:layout_toRightOf="@+id/recipe_rating"
-            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_above="@+id/recipe_item_helpertext_servings"
+            android:layout_alignLeft="@+id/recipe_item_title"
             android:textColor="@android:color/white"
-            tools:text="(10)" />
+            tools:text="60"/>
 
         <TextView
-            android:id="@+id/recipe_category"
+            android:id="@+id/recipe_item_helpertext_mins"
             style="@style/AppTheme.Subheader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/recipe_image"
-            android:layout_alignLeft="@+id/recipe_name"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_alignTop="@+id/recipe_item_ready_in_minutes"
+            android:layout_alignBottom="@+id/recipe_item_ready_in_minutes"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/recipe_item_ready_in_minutes"
+            android:gravity="center"
             android:textColor="@android:color/white"
-            tools:text="Italian" />
+            tools:text="minutes" />
+
+        <TextView
+            android:id="@+id/recipe_item_helpertext_servings"
+            style="@style/AppTheme.Subheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/recipe_item_title"
+            android:layout_alignBottom="@+id/recipe_image"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@android:color/white"
+            tools:text="Serves" />
 
         <TextView
             android:id="@+id/recipe_city_divider"
             style="@style/AppTheme.TextDivider"
-            android:layout_alignTop="@+id/recipe_category"
-            android:layout_toRightOf="@+id/recipe_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/recipe_item_helpertext_servings"
+            android:layout_toRightOf="@+id/recipe_item_helpertext_servings"
             android:text="@string/divider_bullet"
             android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/recipe_city"
+            android:id="@+id/recipe_item_servings"
             style="@style/AppTheme.Subheader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/recipe_category"
-            android:layout_below="@+id/recipe_category"
+            android:layout_below="@+id/recipe_item_helpertext_servings"
+            android:layout_alignTop="@+id/recipe_item_helpertext_servings"
             android:layout_toRightOf="@+id/recipe_city_divider"
             android:textColor="@android:color/white"
-            tools:text="San Francisco" />
+            tools:text="6" />
 
         <TextView
-            android:id="@+id/recipe_price"
+            android:id="@+id/recipe_item_id"
             style="@style/AppTheme.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/recipe_name"
+            android:layout_alignTop="@+id/recipe_item_title"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/white"

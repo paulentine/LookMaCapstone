@@ -146,12 +146,12 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
     @Nullable
     private String getSelectedSortBy() {
         String selected = (String) mSortSpinner.getSelectedItem();
-        if (getString(R.string.sort_by_rating).equals(selected)) {
-            return Recipe.FIELD_AVG_RATING;
-        } if (getString(R.string.sort_by_price).equals(selected)) {
-            return Recipe.FIELD_PRICE;
-        } if (getString(R.string.sort_by_popularity).equals(selected)) {
-            return Recipe.FIELD_POPULARITY;
+        if (getString(R.string.sort_by_title).equals(selected)) {
+            return Recipe.FIELD_TITLE;
+        } if (getString(R.string.sort_by_servings).equals(selected)) {
+            return Recipe.FIELD_SERVINGS;
+        } if (getString(R.string.sort_by_time).equals(selected)) {
+            return Recipe.FIELD_READY_IN_MINUTES;
         }
 
         return null;
@@ -160,12 +160,12 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
     @Nullable
     private Query.Direction getSortDirection() {
         String selected = (String) mSortSpinner.getSelectedItem();
-        if (getString(R.string.sort_by_rating).equals(selected)) {
+        if (getString(R.string.sort_by_title).equals(selected)) {
             return Query.Direction.DESCENDING;
-        } if (getString(R.string.sort_by_price).equals(selected)) {
+        } if (getString(R.string.sort_by_servings).equals(selected)) {
+            return Query.Direction.DESCENDING;
+        } if (getString(R.string.sort_by_time).equals(selected)) {
             return Query.Direction.ASCENDING;
-        } if (getString(R.string.sort_by_popularity).equals(selected)) {
-            return Query.Direction.DESCENDING;
         }
 
         return null;

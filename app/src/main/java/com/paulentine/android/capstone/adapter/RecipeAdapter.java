@@ -19,20 +19,15 @@ import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.paulentine.android.capstone.R;
 import com.paulentine.android.capstone.model.Recipe;
-import com.paulentine.android.capstone.util.RecipeUtil;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
-
-import me.zhanghai.android.materialratingbar.MaterialRatingBar;
 
 /**
  * RecyclerView adapter for a list of Recipes.
@@ -66,23 +61,35 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageView;
-        TextView nameView;
-        MaterialRatingBar ratingBar;
-        TextView numRatingsView;
-        TextView priceView;
-        TextView categoryView;
-        TextView cityView;
+        TextView idView;
+        TextView titleView;
+        TextView readyInMinutesView;
+        TextView servingsView;
+//        ImageView imageView;
+
+//        ImageView imageView;
+//        TextView nameView;
+//        MaterialRatingBar ratingBar;
+//        TextView numRatingsView;
+//        TextView priceView;
+//        TextView categoryView;
+//        TextView cityView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.recipe_item_image);
-            nameView = itemView.findViewById(R.id.recipe_item_name);
-            ratingBar = itemView.findViewById(R.id.recipe_item_rating);
-            numRatingsView = itemView.findViewById(R.id.recipe_item_num_ratings);
-            priceView = itemView.findViewById(R.id.recipe_item_price);
-            categoryView = itemView.findViewById(R.id.recipe_item_category);
-            cityView = itemView.findViewById(R.id.recipe_item_city);
+            idView = itemView.findViewById(R.id.recipe_item_id);
+            titleView = itemView.findViewById(R.id.recipe_item_title);
+            readyInMinutesView = itemView.findViewById(R.id.recipe_item_helpertext_servings);
+            servingsView = itemView.findViewById(R.id.recipe_item_helpertext_mins);
+//            imageView = itemView.findViewById(R.id.recipe_item_image);
+
+//            imageView = itemView.findViewById(R.id.recipe_item_image);
+//            nameView = itemView.findViewById(R.id.recipe_item_title);
+//            ratingBar = itemView.findViewById(R.id.recipe_item_rating);
+//            numRatingsView = itemView.findViewById(R.id.recipe_item_num_ratings);
+//            priceView = itemView.findViewById(R.id.recipe_item_id);
+//            categoryView = itemView.findViewById(R.id.recipe_item_ready_in_minutes);
+//            cityView = itemView.findViewById(R.id.recipe_item_servings);
         }
 
         public void bind(final DocumentSnapshot snapshot,
@@ -91,18 +98,23 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
             Recipe recipe = snapshot.toObject(Recipe.class);
             Resources resources = itemView.getResources();
 
-            // Load image
-            Glide.with(imageView.getContext())
-                    .load(recipe.getPhoto())
-                    .into(imageView);
+            idView.setText(Integer.toString(recipe.getId()));
+            titleView.setText(recipe.getTitle());
+            readyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
+            servingsView.setText(Integer.toString(recipe.getServings()));
 
-            nameView.setText(recipe.getName());
-            ratingBar.setRating((float) recipe.getAvgRating());
-            cityView.setText(recipe.getCity());
-            categoryView.setText(recipe.getCategory());
-            numRatingsView.setText(resources.getString(R.string.fmt_num_ratings,
-                    recipe.getNumRatings()));
-            priceView.setText(RecipeUtil.getPriceString(recipe));
+//            // Load image
+//            Glide.with(imageView.getContext())
+//                    .load(recipe.getImage())
+//                    .into(imageView);
+
+//            nameView .setText(recipe.getTitle());
+//            ratingBar.setRating((float) recipe.getAvgRating());
+//            cityView.setText(recipe.getCity());
+//            categoryView.setText(recipe.getCategory());
+//            numRatingsView.setText(resources.getString(R.string.fmt_num_ratings,
+//                    recipe.getNumRatings()));
+//            priceView.setText(RecipeUtil.getPriceString(recipe));
 
             // Click listener
             itemView.setOnClickListener(new View.OnClickListener() {

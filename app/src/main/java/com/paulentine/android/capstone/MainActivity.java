@@ -23,7 +23,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.paulentine.android.capstone.adapter.RecipeAdapter;
 import com.paulentine.android.capstone.model.Recipe;
-import com.paulentine.android.capstone.util.RecipeUtil;
 import com.paulentine.android.capstone.viewmodel.MainActivityViewModel;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -34,9 +33,9 @@ import com.google.firebase.firestore.Query;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements
-        View.OnClickListener,
-        FilterDialogFragment.FilterListener,
         RecipeAdapter.OnRecipeSelectedListener {
+
+    //        FilterDialogFragment.FilterListener,
 
     private static final String TAG = "MainActivity";
 
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements
     private FirebaseFirestore mFirestore;
     private Query mQuery;
 
-    private FilterDialogFragment mFilterDialog;
+//    private FilterDialogFragment mFilterDialog;
     private RecipeAdapter mAdapter;
 
     private MainActivityViewModel mViewModel;
@@ -81,9 +80,6 @@ public class MainActivity extends AppCompatActivity implements
         mRecipesRecycler = findViewById(R.id.recycler_recipes);
         mEmptyView = findViewById(R.id.view_empty);
 
-        findViewById(R.id.filter_bar).setOnClickListener(this);
-        findViewById(R.id.button_clear_filter).setOnClickListener(this);
-
         // View model
         mViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
 
@@ -94,8 +90,8 @@ public class MainActivity extends AppCompatActivity implements
         initFirestore();
         initRecyclerView();
 
-        // Filter Dialog
-        mFilterDialog = new FilterDialogFragment();
+//        // Filter Dialog
+//        mFilterDialog = new FilterDialogFragment();
     }
 
     private void initFirestore() {
@@ -104,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements
 
         // Get the 50 highest rated recipes
         mQuery = mFirestore.collection("recipes")
-                .orderBy("avgRating", Query.Direction.DESCENDING)
+                .orderBy("title", Query.Direction.DESCENDING)
                 .limit(LIMIT);
     }
 
@@ -149,8 +145,8 @@ public class MainActivity extends AppCompatActivity implements
             return;
         }
 
-        // Apply filters
-        onFilter(mViewModel.getFilters());
+//        // Apply filters
+//        onFilter(mViewModel.getFilters());
 
         // Start listening for Firestore updates
         if (mAdapter != null) {
@@ -166,63 +162,20 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    private void onAddItemsClicked() {
-        // TODO(developer): Add random recipes
-        // Get a reference to the recipes collection
-        CollectionReference recipes = mFirestore.collection("recipes");
-
-        for (int i = 0; i < 10; i++) {
-            // Get a random Recipe POJO
-            Recipe recipe = RecipeUtil.getRandom(this);
-
-            // Add a new document to the recipes collection
-            recipes.add(recipe);
-        }
-        showTodoToast();
-    }
-
-    @Override
-    public void onFilter(Filters filters) {
-        // TODO(developer): Construct new query
-        showTodoToast();
-
-        // Construct query basic query
-        Query query = mFirestore.collection("recipes");
-
-        // Category (equality filter)
-        if (filters.hasCategory()) {
-            query = query.whereEqualTo("category", filters.getCategory());
-        }
-
-        // City (equality filter)
-        if (filters.hasCity()) {
-            query = query.whereEqualTo("city", filters.getCity());
-        }
-
-        // Price (equality filter)
-        if (filters.hasPrice()) {
-            query = query.whereEqualTo("price", filters.getPrice());
-        }
-
-        // Sort by (orderBy with direction)
-        if (filters.hasSortBy()) {
-            query = query.orderBy(filters.getSortBy(), filters.getSortDirection());
-        }
-
-        // Limit items
-        query = query.limit(LIMIT);
-
-        // Update the query
-        mQuery = query;
-        mAdapter.setQuery(query);
-
-        // Set header
-        mCurrentSearchView.setText(Html.fromHtml(filters.getSearchDescription(this)));
-        mCurrentSortByView.setText(filters.getOrderDescription(this));
-
-        // Save filters
-        mViewModel.setFilters(filters);
-    }
+//    private void onAddItemsClicked() {
+//        // TODO(developer): Add random recipes
+//        // Get a reference to the recipes collection
+//        CollectionReference recipes = mFirestore.collection("recipes");
+//
+//        for (int i = 0; i < 10; i++) {
+//            // Get a random Recipe POJO
+//            Recipe recipe = RecipeUtil.getRandom(this);
+//
+//            // Add a new document to the recipes collection
+//            recipes.add(recipe);
+//        }
+//        showTodoToast();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -230,17 +183,29 @@ public class MainActivity extends AppCompatActivity implements
         return super.onCreateOptionsMenu(menu);
     }
 
+    // TODO starting add activity from here, with support app bar commented out forces sign out and re-login before launching activity... why?
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_add_items:
-                onAddItemsClicked();
-                break;
+//            case R.id.menu_add_recipe:
+//                Intent intent = new Intent(MainActivity.this, NewRecipeActivity.class);
+//                startActivity(intent);
+////                onAddItemsClicked();
+////                break;
             case R.id.menu_sign_out:
                 AuthUI.getInstance().signOut(this);
                 startSignIn();
                 break;
         }
+//        switch (item.getItemId()) {
+//            case R.id.menu_add_items:
+//                onAddItemsClicked();
+//                break;
+//            case R.id.menu_sign_out:
+//                AuthUI.getInstance().signOut(this);
+//                startSignIn();
+//                break;
+//        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -254,28 +219,6 @@ public class MainActivity extends AppCompatActivity implements
                 startSignIn();
             }
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.filter_bar:
-                onFilterClicked();
-                break;
-            case R.id.button_clear_filter:
-                onClearFilterClicked();
-        }
-    }
-
-    public void onFilterClicked() {
-        // Show the dialog containing filter options
-        mFilterDialog.show(getSupportFragmentManager(), FilterDialogFragment.TAG);
-    }
-
-    public void onClearFilterClicked() {
-        mFilterDialog.resetFilters();
-
-        onFilter(Filters.getDefault());
     }
 
     @Override
