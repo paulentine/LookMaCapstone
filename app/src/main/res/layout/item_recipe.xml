@@ -7,6 +7,19 @@
     android:orientation="vertical"
     android:padding="8dp">
 
+    <TextView
+        android:id="@+id/recipe_item_helpertext_mins"
+        style="@style/AppTheme.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/recipe_item_ready_in_mins"
+        android:layout_alignBottom="@+id/recipe_item_ready_in_mins"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/recipe_item_ready_in_mins"
+        android:gravity="center_vertical"
+        android:text="minutes"
+        android:textColor="@color/greyDisabled" />
+
     <ImageView
         android:id="@+id/recipe_item_image"
         android:layout_width="60dp"
@@ -16,7 +29,7 @@
         android:src="@drawable/food_1" />
 
     <TextView
-        android:id="@+id/recipe_item_name"
+        android:id="@+id/recipe_item_title"
         style="@style/AppTheme.Subheader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,63 +37,92 @@
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="-2dp"
-        android:layout_toLeftOf="@+id/recipe_item_price"
+        android:layout_toLeftOf="@+id/recipe_item_id"
         android:layout_toRightOf="@+id/recipe_item_image"
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Foo's Bar" />
 
-    <me.zhanghai.android.materialratingbar.MaterialRatingBar
-        android:id="@+id/recipe_item_rating"
-        style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
+    <TextView
+        android:id="@+id/recipe_item_ready_in_mins"
+        style="@style/AppTheme.Subheader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/recipe_item_name"
-        android:layout_below="@+id/recipe_item_name"
-        android:layout_marginBottom="4dp" />
+        android:layout_alignLeft="@+id/recipe_item_title"
+        android:layout_below="@+id/recipe_item_title"
+        android:layout_marginBottom="4dp"
+        tools:text="60"/>
+
+    <!--<TextView-->
+    <!--android:id="@+id/recipe_ready_in_minutes"-->
+    <!--style="@style/AppTheme.Subheader"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_above="@+id/recipe_servings_helpertext"-->
+    <!--android:layout_alignLeft="@+id/recipe_item_title"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--tools:text="60"/>-->
 
     <TextView
-        android:id="@+id/recipe_item_num_ratings"
+        android:id="@+id/recipe_item_helpertext_mins"
         style="@style/AppTheme.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/recipe_item_rating"
-        android:layout_alignTop="@+id/recipe_item_rating"
+        android:layout_alignTop="@+id/recipe_item_helpertext_servings"
+        android:layout_alignBottom="@+id/recipe_item_helpertext_servings"
         android:layout_marginLeft="4dp"
-        android:layout_toRightOf="@+id/recipe_item_rating"
+        android:layout_toRightOf="@+id/recipe_item_helpertext_servings"
         android:gravity="center_vertical"
-        android:textColor="@color/greyDisabled"
-        tools:text="(10)" />
+        tools:text="4" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/recipe_mins_helpertext"-->
+    <!--style="@style/AppTheme.Subheader"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignTop="@+id/recipe_ready_in_minutes"-->
+    <!--android:layout_alignBottom="@+id/recipe_ready_in_minutes"-->
+    <!--android:layout_marginLeft="4dp"-->
+    <!--android:layout_toRightOf="@+id/recipe_ready_in_minutes"-->
+    <!--android:gravity="center"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--tools:text="minutes" />-->
 
     <TextView
-        android:id="@+id/recipe_item_category"
         style="@style/AppTheme.Body1"
+        android:id="@+id/recipe_item_helpertext_servings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/recipe_item_name"
-        android:layout_below="@+id/recipe_item_rating"
-        android:textColor="@color/greySecondary"
-        tools:text="Italian" />
+        android:layout_below="@+id/recipe_item_ready_in_mins"
+        android:layout_alignLeft="@+id/recipe_item_title"
+        android:text="Serves:"
+        android:textColor="@color/greySecondary" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/recipe_servings_helpertext"-->
+    <!--style="@style/AppTheme.Subheader"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignLeft="@+id/recipe_item_title"-->
+    <!--android:layout_alignBottom="@+id/recipe_image"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:layout_marginBottom="8dp"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--tools:text="Serves" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/recipe_servings"-->
+    <!--style="@style/AppTheme.Subheader"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/recipe_servings_helpertext"-->
+    <!--android:layout_alignTop="@+id/recipe_servings_helpertext"-->
+    <!--android:layout_toRightOf="@+id/recipe_city_divider"-->
+    <!--android:textColor="@color/greySecondary"-->
+    <!--tools:text="6" />-->
 
     <TextView
-        android:id="@+id/recipe_item_city_divider"
-        style="@style/AppTheme.TextDivider"
-        android:layout_alignTop="@+id/recipe_item_category"
-        android:layout_toRightOf="@+id/recipe_item_category"
-        android:text="@string/divider_bullet" />
-
-    <TextView
-        android:id="@+id/recipe_item_city"
-        style="@style/AppTheme.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/recipe_item_category"
-        android:layout_toRightOf="@+id/recipe_item_city_divider"
-        android:textColor="@color/greySecondary"
-        tools:text="San Francisco" />
-
-    <TextView
-        android:id="@+id/recipe_item_price"
+        android:id="@+id/recipe_item_id"
         style="@style/AppTheme.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

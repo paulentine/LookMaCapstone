@@ -17,7 +17,7 @@
 
 import androidx.lifecycle.ViewModel;
 
-import com.paulentine.android.capstone.Filters;
+//import com.paulentine.android.capstone.Filters;
 
 /**
  * ViewModel for {@link com.paulentine.android.capstone.MainActivity}.
@@ -26,11 +26,11 @@ import com.paulentine.android.capstone.Filters;
 public class MainActivityViewModel extends ViewModel {
 
     private boolean mIsSigningIn;
-    private Filters mFilters;
+//    private Filters mFilters;
 
     public MainActivityViewModel() {
         mIsSigningIn = false;
-        mFilters = Filters.getDefault();
+//        mFilters = Filters.getDefault();
     }
 
     public boolean getIsSigningIn() {
@@ -41,11 +41,11 @@ public class MainActivityViewModel extends ViewModel {
         this.mIsSigningIn = mIsSigningIn;
     }
 
-    public Filters getFilters() {
-        return mFilters;
-    }
-
-    public void setFilters(Filters mFilters) {
-        this.mFilters = mFilters;
-    }
+//    public Filters getFilters() {
+//        return mFilters;
+//    }
+//
+//    public void setFilters(Filters mFilters) {
+//        this.mFilters = mFilters;
+//    }
 }

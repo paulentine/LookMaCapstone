@@ -22,86 +22,144 @@ import com.google.firebase.firestore.IgnoreExtraProperties;
  */
 @IgnoreExtraProperties
 public class Recipe {
+    public static final String FIELD_TITLE = "title";
+    public static final String FIELD_READY_IN_MINUTES = "readyInMinutes";
+    public static final String FIELD_SERVINGS = "servings";
 
-    public static final String FIELD_CITY = "city";
-    public static final String FIELD_CATEGORY = "category";
-    public static final String FIELD_PRICE = "price";
-    public static final String FIELD_POPULARITY = "numRatings";
-    public static final String FIELD_AVG_RATING = "avgRating";
+    private int id;
+    private String title;
+    private int readyInMinutes;
+    private int servings;
+//    private String image;
 
-    private String name;
-    private String city;
-    private String category;
-    private String photo;
-    private int price;
-    private int numRatings;
-    private double avgRating;
+//    public static final String FIELD_CITY = "city";
+//    public static final String FIELD_CATEGORY = "category";
+//    public static final String FIELD_PRICE = "price";
+//    public static final String FIELD_POPULARITY = "numRatings";
+//    public static final String FIELD_AVG_RATING = "avgRating";
+//
+//    private String name;
+//    private String city;
+//    private String category;
+//    private String photo;
+//    private int price;
+//    private int numRatings;
+//    private double avgRating;
 
     public Recipe() {}
 
-    public Recipe(String name, String city, String category, String photo,
-                  int price, int numRatings, double avgRating) {
-        this.name = name;
-        this.city = city;
-        this.category = category;
-        this.price = price;
-        this.numRatings = numRatings;
-        this.avgRating = avgRating;
+//    public Recipe(String name, String city, String category, String photo,
+////                  int price, int numRatings, double avgRating) {
+////        this.name = name;
+////        this.city = city;
+////        this.category = category;
+////        this.price = price;
+////        this.numRatings = numRatings;
+////        this.avgRating = avgRating;
+////    }
+
+    public Recipe(int id, String title, int readyInMinutes, int servings) {
+        this.id = id;
+        this.title = title;
+        this.readyInMinutes = readyInMinutes;
+        this.servings = servings;
+//        this.image = image;
     }
 
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getCity() {
-        return city;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getCategory() {
-        return category;
+    public int getReadyInMinutes() {
+        return readyInMinutes;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setReadyInMinutes(int readyInMinutes) {
+        this.readyInMinutes = readyInMinutes;
     }
 
-    public String getPhoto() {
-        return photo;
+    public int getServings() {
+        return servings;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setServings(int servings) {
+        this.servings = servings;
     }
 
-    public int getPrice() {
-        return price;
-    }
+//    public String getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(String image) {
+//        this.image = image;
+//    }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
-    public int getNumRatings() {
-        return numRatings;
-    }
-
-    public void setNumRatings(int numRatings) {
-        this.numRatings = numRatings;
-    }
-
-    public double getAvgRating() {
-        return avgRating;
-    }
-
-    public void setAvgRating(double avgRating) {
-        this.avgRating = avgRating;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(String city) {
+//        this.city = city;
+//    }
+//
+//    public String getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(String category) {
+//        this.category = category;
+//    }
+//
+//    public String getPhoto() {
+//        return photo;
+//    }
+//
+//    public void setPhoto(String photo) {
+//        this.photo = photo;
+//    }
+//
+//    public int getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(int price) {
+//        this.price = price;
+//    }
+//
+//    public int getNumRatings() {
+//        return numRatings;
+//    }
+//
+//    public void setNumRatings(int numRatings) {
+//        this.numRatings = numRatings;
+//    }
+//
+//    public double getAvgRating() {
+//        return avgRating;
+//    }
+//
+//    public void setAvgRating(double avgRating) {
+//        this.avgRating = avgRating;
+//    }
 }
