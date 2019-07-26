@@ -37,6 +37,13 @@
         android:hint="Servings"
         android:inputType="text" />
 
+    <EditText
+        android:id="@+id/edit_text_steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Steps"
+        android:inputType="text" />
+
     <Button
         android:id="@+id/recipe_button_save"
         android:layout_width="match_parent"
