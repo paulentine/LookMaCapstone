@@ -28,6 +28,7 @@ import com.paulentine.android.capstone.R;
 import com.paulentine.android.capstone.model.Recipe;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
+import com.paulentine.android.capstone.model.Step;
 
 /**
  * RecyclerView adapter for a list of Recipes.
@@ -65,6 +66,7 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
         TextView titleView;
         TextView readyInMinutesView;
         TextView servingsView;
+//        TextView stepsView;
 
 //        ImageView imageView;
 
@@ -82,6 +84,8 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
             titleView = itemView.findViewById(R.id.recipe_item_title);
             readyInMinutesView = itemView.findViewById(R.id.recipe_item_helpertext_servings);
             servingsView = itemView.findViewById(R.id.recipe_item_helpertext_mins);
+
+//            stepsView = itemView.findViewById(R.id.recipe_item_step);
 //            imageView = itemView.findViewById(R.id.recipe_item_image);
 
 //            imageView = itemView.findViewById(R.id.recipe_item_image);
@@ -103,6 +107,13 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
             titleView.setText(recipe.getTitle());
             readyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
             servingsView.setText(Integer.toString(recipe.getServings()));
+
+//            String data = "";
+//            for (Step step : recipe.getSteps()) {
+//                data += "\n" + step.getInstruction();
+////                data += "\n" + step;
+//            }
+//            stepsView.setText(data);
 
 //            // Load image
 //            Glide.with(imageView.getContext())

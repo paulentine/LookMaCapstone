@@ -4,16 +4,14 @@ package com.paulentine.android.capstone.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 public class Step {
 
     @SerializedName("number")
     @Expose
     private Integer number;
-    @SerializedName("step")
+    @SerializedName("instruction")
     @Expose
-    private String step;
+    private String instruction;
 
     public Integer getNumber() {
         return number;
@@ -23,18 +21,18 @@ public class Step {
         this.number = number;
     }
 
-    public String getStep() {
-        return step;
+    public String getInstruction() {
+        return instruction;
     }
 
-    public void setStep(String step) {
-        this.step = step;
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
     }
 
     public Step() {}
 
-    public Step(int number, String step) {
+    public Step(int number, String instruction) {
         this.number = number;
-        this.step = step;
+        this.instruction = instruction;
     }
 }
