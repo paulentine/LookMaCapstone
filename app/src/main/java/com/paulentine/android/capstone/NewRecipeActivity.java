@@ -65,17 +65,22 @@ public class NewRecipeActivity extends AppCompatActivity {
         CollectionReference recipesRef = FirebaseFirestore.getInstance()
                 .collection("testRecipes");
 
-        // Fake list of steps
-        List<Step> fakeSteps = new ArrayList<Step>();
-        fakeSteps.add(new Step(1, "Turn on oven"));
-        fakeSteps.add(new Step(2, "Turn off oven"));
-        fakeSteps.add(new Step(3, "Drink water"));
-        recipesRef.add(new Recipe(id, title, readyInMinutes, servings, fakeSteps));
-
+//        // Fake list of steps
+//        List<Step> fakeSteps = new ArrayList<Step>();
+//        fakeSteps.add(new Step(1, "Turn on oven"));
+//        fakeSteps.add(new Step(2, "Turn off oven"));
+//        fakeSteps.add(new Step(3, "Drink water"));
+//        recipesRef.add(new Recipe(id, title, readyInMinutes, servings, fakeSteps));
+//
+//        // Got this from some tutorial, obv doesn't work cos data structure doesn't match
 //        String stepInput = editTextSteps.getText().toString();
 //        String[] stepArray = stepInput.split("\\s*,\\s*");
 //        List<String> steps = Arrays.asList(stepArray);
 //        recipesRef.add(new Recipe(id, title, readyInMinutes, servings, steps));
+
+        // TODO: Match data structure w/ form so we can send real steps
+        // For each step from our input, we want to instantiate a new Step, with number & instruction
+        recipesRef.add(new Recipe(id, title, readyInMinutes, servings, steps));
 
         Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();
