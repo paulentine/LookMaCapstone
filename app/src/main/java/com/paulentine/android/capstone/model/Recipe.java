@@ -17,6 +17,8 @@
 
 import com.google.firebase.firestore.IgnoreExtraProperties;
 
+import java.util.List;
+
 /**
  * Recipe POJO.
  */
@@ -30,6 +32,8 @@ public class Recipe {
     private String title;
     private int readyInMinutes;
     private int servings;
+    private List<Step> steps;
+
 //    private String image;
 
 //    public static final String FIELD_CITY = "city";
@@ -58,11 +62,12 @@ public class Recipe {
 ////        this.avgRating = avgRating;
 ////    }
 
-    public Recipe(int id, String title, int readyInMinutes, int servings) {
+    public Recipe(int id, String title, int readyInMinutes, int servings, List<Step> steps) {
         this.id = id;
         this.title = title;
         this.readyInMinutes = readyInMinutes;
         this.servings = servings;
+        this.steps = steps;
 //        this.image = image;
     }
 
@@ -96,6 +101,14 @@ public class Recipe {
 
     public void setServings(int servings) {
         this.servings = servings;
+    }
+
+    public List<Step> getSteps() {
+        return steps;
+    }
+
+    public void setSteps(List<Step> steps) {
+        this.steps = steps;
     }
 
 //    public String getImage() {

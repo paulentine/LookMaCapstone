@@ -129,22 +129,32 @@
         android:layout_marginRight="16dp"
         app:srcCompat="@drawable/ic_add_white_24px" />
 
-    <!-- Ratings -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_ratings"
-        android:layout_width="match_parent"
+    <!-- Steps -->
+    <TextView
+        android:id="@+id/recipe_item_step"
+        style="@style/AppTheme.Title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recipe_top_card"
-        android:background="@android:color/transparent"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp"
-        android:paddingTop="28dp"
-        android:visibility="gone"
-        tools:listitem="@layout/item_rating" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        tools:text="Some Recipe" />
 
-    <!-- View for empty ratings -->
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/recycler_steps"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/recipe_top_card"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:clipToPadding="false"-->
+        <!--android:paddingBottom="16dp"-->
+        <!--android:paddingTop="28dp"-->
+        <!--android:visibility="gone"-->
+        <!--tools:listitem="@layout/item_rating" />-->
+
+    <!-- View for empty steps -->
     <LinearLayout
-        android:id="@+id/view_empty_ratings"
+        android:id="@+id/view_empty_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

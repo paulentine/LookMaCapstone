@@ -33,6 +33,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.paulentine.android.capstone.model.Step;
 
 public class RecipeDetailActivity extends AppCompatActivity implements
         View.OnClickListener,
@@ -47,6 +48,8 @@ public class RecipeDetailActivity extends AppCompatActivity implements
     private TextView mTitleView;
     private TextView mReadyInMinutesView;
     private TextView mServingsView;
+    private TextView mStepsView;
+
     private ViewGroup mEmptyView;
     private RecyclerView mRatingsRecycler;
 
@@ -73,9 +76,10 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mIdView = findViewById(R.id.recipe_item_id);
         mTitleView = findViewById(R.id.recipe_item_title);
         mReadyInMinutesView = findViewById((R.id.recipe_item_ready_in_minutes));
-        mServingsView = findViewById((R.id.recipe_item_servings));
-        mEmptyView = findViewById(R.id.view_empty_ratings);
-        mRatingsRecycler = findViewById(R.id.recycler_ratings);
+        mServingsView = findViewById(R.id.recipe_item_servings);
+        mStepsView = findViewById(R.id.recipe_item_step);
+//        mEmptyView = findViewById(R.id.view_empty_ratings);
+//        mRatingsRecycler = findViewById(R.id.recycler_ratings);
         
 //        mImageView = findViewById(R.id.recipe_image);
 //        mNameView = findViewById(R.id.recipe_name);
@@ -100,7 +104,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mFirestore = FirebaseFirestore.getInstance();
 
         // Get reference to the recipe
-        mRecipeRef = mFirestore.collection("recipes").document(recipeId);
+        mRecipeRef = mFirestore.collection("testRecipes").document(recipeId);
     }
 
     @Override
@@ -151,6 +155,13 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mTitleView.setText(recipe.getTitle());
         mReadyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
         mServingsView.setText(Integer.toString(recipe.getServings()));
+
+        String data = "";
+        for (Step step : recipe.getSteps()) {
+            data += "\n" + step.getInstruction();
+//                data += "\n" + step;
+        }
+        mStepsView.setText(data);
 
 //        mNameView.setText(recipe.getName());
 //        mRatingIndicator.setRating((float) recipe.getAvgRating());
