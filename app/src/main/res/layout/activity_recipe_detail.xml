@@ -68,8 +68,8 @@
             android:layout_marginLeft="4dp"
             android:layout_toRightOf="@+id/recipe_item_ready_in_minutes"
             android:gravity="center"
-            android:textColor="@android:color/white"
-            tools:text="minutes" />
+            android:text="minutes"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/recipe_item_helpertext_servings"
@@ -80,8 +80,8 @@
             android:layout_alignBottom="@+id/recipe_image"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textColor="@android:color/white"
-            tools:text="Serves" />
+            android:text="Serves:"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/recipe_city_divider"
@@ -120,7 +120,7 @@
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_show_rating_dialog"
+        android:id="@+id/button_step_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/recipe_top_card"

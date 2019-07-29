@@ -1,14 +1,16 @@
-
 package com.paulentine.android.capstone.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+// Eventually we'll have var stepCursor & function moveCursor that steps up or down cursor's index
+// Use button to simulate moveCursor, before hooking it up to actions
 public class Step {
 
     @SerializedName("number")
     @Expose
     private Integer number;
+
     @SerializedName("instruction")
     @Expose
     private String instruction;

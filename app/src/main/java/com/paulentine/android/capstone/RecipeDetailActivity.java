@@ -19,13 +19,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.paulentine.android.capstone.model.Recipe;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -53,19 +52,10 @@ public class RecipeDetailActivity extends AppCompatActivity implements
     private ViewGroup mEmptyView;
     private RecyclerView mRatingsRecycler;
 
-//    private ImageView mImageView;
-//    private TextView mNameView;
-//    private MaterialRatingBar mRatingIndicator;
-//    private TextView mNumRatingsView;
-//    private TextView mCityView;
-//    private TextView mCategoryView;
-//    private TextView mPriceView;
-//    private ViewGroup mEmptyView;
-//    private RecyclerView mRatingsRecycler;
-
     private FirebaseFirestore mFirestore;
     private DocumentReference mRecipeRef;
     private ListenerRegistration mRecipeRegistration;
+    private Recipe recipeModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,21 +68,17 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mReadyInMinutesView = findViewById((R.id.recipe_item_ready_in_minutes));
         mServingsView = findViewById(R.id.recipe_item_servings);
         mStepsView = findViewById(R.id.recipe_item_step);
-//        mEmptyView = findViewById(R.id.view_empty_ratings);
-//        mRatingsRecycler = findViewById(R.id.recycler_ratings);
-        
-//        mImageView = findViewById(R.id.recipe_image);
-//        mNameView = findViewById(R.id.recipe_name);
-//        mRatingIndicator = findViewById(R.id.recipe_rating);
-//        mNumRatingsView = findViewById(R.id.recipe_num_ratings);
-//        mCityView = findViewById(R.id.recipe_city);
-//        mCategoryView = findViewById(R.id.recipe_category);
-//        mPriceView = findViewById(R.id.recipe_price);
-//        mEmptyView = findViewById(R.id.view_empty_ratings);
-//        mRatingsRecycler = findViewById(R.id.recycler_ratings);
+
+        FloatingActionButton buttonStepUp = findViewById(R.id.button_step_up);
+        buttonStepUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("PAULINE", "THIS IS FROM BUTTON CLICKED");
+                recipeModel.moveCursorUp();
+            }
+        });
 
         findViewById(R.id.recipe_button_back).setOnClickListener(this);
-        findViewById(R.id.fab_show_rating_dialog).setOnClickListener(this);
 
         // Get recipe ID from extras
         String recipeId = getIntent().getExtras().getString(KEY_RECIPE_ID);
@@ -156,19 +142,15 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mReadyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
         mServingsView.setText(Integer.toString(recipe.getServings()));
 
-        String data = "";
-        for (Step step : recipe.getSteps()) {
-            data += "\n" + step.getInstruction();
-//                data += "\n" + step;
-        }
-        mStepsView.setText(data);
+        // Bind recipe from snapshot to recipe model
+        this.recipeModel = recipe;
+        recipeModel.resetCursor();
 
-//        mNameView.setText(recipe.getName());
-//        mRatingIndicator.setRating((float) recipe.getAvgRating());
-//        mNumRatingsView.setText(getString(R.string.fmt_num_ratings, recipe.getNumRatings()));
-//        mCityView.setText(recipe.getCity());
-//        mCategoryView.setText(recipe.getCategory());
-//        mPriceView.setText(RecipeUtil.getPriceString(recipe));
+        String stepsData = "";
+        for (Step step : recipe.getSteps()) {
+            stepsData += "\n" + step.getInstruction();
+        }
+        mStepsView.setText(stepsData);
 
 //        // Background image
 //        Glide.with(mImageView.getContext())
