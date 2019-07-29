@@ -22,12 +22,9 @@ public class Recipe {
 
     private List<Step> steps;
     private int stepCursor;
-    // Do we need this or can I use steps[stepCursor].instruction?
-    // can make a getter without it being a field
-    private String stepCursorInstruction;
 
     public Recipe() {
-        this.stepCursor = 1;
+        resetCursor();
     }
 
     public Recipe(int id, String title, int readyInMinutes, int servings, List<Step> steps) {
@@ -41,23 +38,28 @@ public class Recipe {
     }
 
     public void moveCursorUp() {
-        stepCursor += 1;
-        Log.d("stepCursor", Integer.toString(stepCursor));
+        if (stepCursor < (steps.size() -1 )) {
+            stepCursor += 1;
+            Log.d("stepCursor1", (stepCursor) + " " + steps.size());
 
+        }
+//        Log.d("stepCursor2", Integer.toString(stepCursor));
+        Log.d("stepCursor2", (stepCursor) + " " + steps.size());
         readInstruction();
     }
 
     private void readInstruction() {
-        Log.d("stepCursorInstruction", stepCursorInstruction == null ? "null": stepCursorInstruction);
+        String text = steps.get(stepCursor).getInstruction();
+        Log.d("stepCursorInstruction", (text == null) ? "null": text);
 //        Log.d("stepCursorInstruction", stepCursorInstruction);
     }
 
+    public void resetCursor() {
+        this.stepCursor = 0;
+        Log.d("resetCursor", "This is reset cursor");
+    }
     public int getStepCursor() {
         return stepCursor;
-    }
-
-    public String getStepCursorInstruction() {
-        return stepCursorInstruction;
     }
 
     public int getId() {

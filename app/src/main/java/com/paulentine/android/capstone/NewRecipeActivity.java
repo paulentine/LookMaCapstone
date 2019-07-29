@@ -72,7 +72,7 @@ public class NewRecipeActivity extends AppCompatActivity {
 
         final LinearLayout stepsLayout = findViewById(R.id.steps_linear_layout);
         int count = stepsLayout.getChildCount();
-        for (int stepNum = 1; stepNum < stepsCount; stepNum++) {
+        for (int stepNum = 0; stepNum < stepsCount; stepNum++) {
             EditText stepField = (EditText)stepsLayout.getChildAt(stepNum);
             String stepInstruction = stepField.getText().toString();
             steps.add(new Step(stepNum, stepInstruction));

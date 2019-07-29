@@ -58,13 +58,6 @@
         tools:context=".NewRecipeActivity"
         android:orientation="vertical">
 
-        <!--<EditText-->
-            <!--android:id="@+id/edit_text_step_instruction"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:hint="Steps"-->
-            <!--android:inputType="text" />-->
-
     </LinearLayout>
 
 

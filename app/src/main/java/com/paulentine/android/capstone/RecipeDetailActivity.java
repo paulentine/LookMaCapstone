@@ -154,15 +154,15 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mReadyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
         mServingsView.setText(Integer.toString(recipe.getServings()));
 
+        // Bind recipe from snapshot to recipe model
         this.recipeModel = recipe;
-//        Recipe recipe = new Recipe(RecipeDetailActivity.this);
+        recipeModel.resetCursor();
 
-        String data = "";
+        String stepsData = "";
         for (Step step : recipe.getSteps()) {
-            data += "\n" + step.getInstruction();
-//                data += "\n" + step;
+            stepsData += "\n" + step.getInstruction();
         }
-        mStepsView.setText(data);
+        mStepsView.setText(stepsData);
 
         // call incrementer here
 //        recipe.moveCursorUp();
