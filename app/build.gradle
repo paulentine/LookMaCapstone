@@ -27,8 +27,10 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation 'com.google.apis:google-api-services-dialogflow:v2-rev81-1.25.0'
+
     // Firestore
-    implementation 'com.google.firebase:firebase-firestore:20.1.0'
+    implementation 'com.google.firebase:firebase-firestore:20.2.0'
     implementation 'com.google.firebase:firebase-core:17.0.1'
 
     // Other Firebase/Play services deps
