@@ -52,16 +52,6 @@ public class RecipeDetailActivity extends AppCompatActivity implements
     private ViewGroup mEmptyView;
     private RecyclerView mRatingsRecycler;
 
-//    private ImageView mImageView;
-//    private TextView mNameView;
-//    private MaterialRatingBar mRatingIndicator;
-//    private TextView mNumRatingsView;
-//    private TextView mCityView;
-//    private TextView mCategoryView;
-//    private TextView mPriceView;
-//    private ViewGroup mEmptyView;
-//    private RecyclerView mRatingsRecycler;
-
     private FirebaseFirestore mFirestore;
     private DocumentReference mRecipeRef;
     private ListenerRegistration mRecipeRegistration;
@@ -78,8 +68,6 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mReadyInMinutesView = findViewById((R.id.recipe_item_ready_in_minutes));
         mServingsView = findViewById(R.id.recipe_item_servings);
         mStepsView = findViewById(R.id.recipe_item_step);
-//        mEmptyView = findViewById(R.id.view_empty_ratings);
-//        mRatingsRecycler = findViewById(R.id.recycler_ratings);
 
         FloatingActionButton buttonStepUp = findViewById(R.id.button_step_up);
         buttonStepUp.setOnClickListener(new View.OnClickListener() {
@@ -163,16 +151,6 @@ public class RecipeDetailActivity extends AppCompatActivity implements
             stepsData += "\n" + step.getInstruction();
         }
         mStepsView.setText(stepsData);
-
-        // call incrementer here
-//        recipe.moveCursorUp();
-
-//        mNameView.setText(recipe.getName());
-//        mRatingIndicator.setRating((float) recipe.getAvgRating());
-//        mNumRatingsView.setText(getString(R.string.fmt_num_ratings, recipe.getNumRatings()));
-//        mCityView.setText(recipe.getCity());
-//        mCategoryView.setText(recipe.getCategory());
-//        mPriceView.setText(RecipeUtil.getPriceString(recipe));
 
 //        // Background image
 //        Glide.with(mImageView.getContext())

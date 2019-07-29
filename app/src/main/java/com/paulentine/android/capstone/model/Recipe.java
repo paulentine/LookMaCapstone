@@ -43,7 +43,6 @@ public class Recipe {
             Log.d("stepCursor1", (stepCursor) + " " + steps.size());
 
         }
-//        Log.d("stepCursor2", Integer.toString(stepCursor));
         Log.d("stepCursor2", (stepCursor) + " " + steps.size());
         readInstruction();
     }
