@@ -146,6 +146,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         this.recipeModel = recipe;
         recipeModel.resetCursor();
 
+        // Make currRecipe globally available for voice fulfillment
         Recipe.currRecipe = recipe;
 
         String stepsData = "";
