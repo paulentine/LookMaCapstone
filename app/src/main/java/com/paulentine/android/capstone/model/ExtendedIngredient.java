@@ -6,9 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class ExtendedIngredient {
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
     @SerializedName("name")
     @Expose
     private String name;
@@ -18,14 +15,6 @@ public class ExtendedIngredient {
     @SerializedName("unit")
     @Expose
     private String unit;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -51,4 +40,11 @@ public class ExtendedIngredient {
         this.unit = unit;
     }
 
+    public ExtendedIngredient() {}
+
+    public ExtendedIngredient(String name, Integer amount, String unit) {
+        this.name = name;
+        this.amount = amount;
+        this.unit = unit;
+    }
 }
