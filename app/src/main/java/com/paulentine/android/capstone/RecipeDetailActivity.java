@@ -74,7 +74,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
             @Override
             public void onClick(View v) {
                 Log.d("PAULINE", "THIS IS FROM BUTTON CLICKED");
-                recipeModel.moveCursorUp();
+                recipeModel.nextStep();
             }
         });
 
@@ -145,6 +145,9 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         // Bind recipe from snapshot to recipe model
         this.recipeModel = recipe;
         recipeModel.resetCursor();
+
+        // Make currRecipe globally available for voice fulfillment
+        Recipe.currRecipe = recipe;
 
         String stepsData = "";
         for (Step step : recipe.getSteps()) {
