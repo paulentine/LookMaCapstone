@@ -33,40 +33,13 @@ public class VoiceFulfillment extends DialogflowApp {
         return rb.endConversation().build();
     }
 
-//    @ForIntent("Next Step")
-//    public ActionResponse nextStep(ActionRequest request) {
-//        ResponseBuilder rb = getResponseBuilder(request);
-//
-//        String stepText = Recipe.
-//    }
+    @ForIntent("Next Step")
+    public ActionResponse nextStep(ActionRequest request) {
+        ResponseBuilder rb = getResponseBuilder(request);
 
-
-//    @ForIntent("Read step")
-//    public ActionResponse repeatStep(ActionRequest request) {
-//        LOGGER.info("Read step intent start.");
-//        ResponseBuilder responseBuilder = getResponseBuilder(request);
-//        ResourceBundle rb = ResourceBundle.getBundle("resources");
-//        User user = request.getUser();
-//
-//        if (user != null && user.getLastSeen() != null) {
-//            responseBuilder.add(rb.getString("welcome_back"));
-//        } else {
-//            responseBuilder.add(rb.getString("welcome"));
-//        }
-//
-//        LOGGER.info("This intent end.");
-//        return responseBuilder.build();
-//    }
-//
-//    @ForIntent("Next")
-//    public ActionResponse next(ActionRequest request) {
-//        LOGGER.info("Next intent start.");
-//        ResponseBuilder responseBuilder = getResponseBuilder(request);
-//        ResourceBundle rb = ResourceBundle.getBundle("resources");
-//
-//        responseBuilder.add(rb.getString("bye")).endConversation();
-//        LOGGER.info("Next intent end.");
-//        return responseBuilder.build();
-//    }
+        String stepText = Recipe.currRecipe.nextStep();
+        rb.add("You said "+ stepText);
+        return rb.endConversation().build();
+    }
 }
 

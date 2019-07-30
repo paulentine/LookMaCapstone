@@ -38,14 +38,14 @@ public class Recipe {
         this.steps = steps;
     }
 
-    public void nextStep() {
+    public String nextStep() {
         if (stepCursor < (steps.size() -1 )) {
             stepCursor += 1;
             Log.d("stepCursor1", (stepCursor) + " " + steps.size());
 
         }
         Log.d("stepCursor2", (stepCursor) + " " + steps.size());
-        readInstruction();
+        return readInstruction();
     }
 
     public String readInstruction() {
