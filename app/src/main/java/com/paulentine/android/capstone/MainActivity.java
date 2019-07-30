@@ -162,21 +162,6 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-//    private void onAddItemsClicked() {
-//        // TODO(developer): Add random recipes
-//        // Get a reference to the recipes collection
-//        CollectionReference recipes = mFirestore.collection("recipes");
-//
-//        for (int i = 0; i < 10; i++) {
-//            // Get a random Recipe POJO
-//            Recipe recipe = RecipeUtil.getRandom(this);
-//
-//            // Add a new document to the recipes collection
-//            recipes.add(recipe);
-//        }
-//        showTodoToast();
-//    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -197,15 +182,7 @@ public class MainActivity extends AppCompatActivity implements
                 startSignIn();
                 break;
         }
-//        switch (item.getItemId()) {
-//            case R.id.menu_add_items:
-//                onAddItemsClicked();
-//                break;
-//            case R.id.menu_sign_out:
-//                AuthUI.getInstance().signOut(this);
-//                startSignIn();
-//                break;
-//        }
+
         return super.onOptionsItemSelected(item);
     }
 
