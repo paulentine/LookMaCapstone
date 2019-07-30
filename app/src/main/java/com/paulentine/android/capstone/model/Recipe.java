@@ -22,6 +22,7 @@ public class Recipe {
 
     private List<Step> steps;
     private int stepCursor;
+    public static Recipe currRecipe;
 
     public Recipe() {
         resetCursor();
@@ -37,7 +38,7 @@ public class Recipe {
         this.steps = steps;
     }
 
-    public void moveCursorUp() {
+    public void nextStep() {
         if (stepCursor < (steps.size() -1 )) {
             stepCursor += 1;
             Log.d("stepCursor1", (stepCursor) + " " + steps.size());
@@ -47,9 +48,10 @@ public class Recipe {
         readInstruction();
     }
 
-    private void readInstruction() {
+    public String readInstruction() {
         String text = steps.get(stepCursor).getInstruction();
         Log.d("stepCursorInstruction", (text == null) ? "null": text);
+        return text;
 //        Log.d("stepCursorInstruction", stepCursorInstruction);
     }
 
