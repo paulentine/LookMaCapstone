@@ -140,17 +140,15 @@
         android:textStyle="bold"
         tools:text="Some Recipe" />
 
-    <!--<androidx.recyclerview.widget.RecyclerView-->
-        <!--android:id="@+id/recycler_steps"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/recipe_top_card"-->
-        <!--android:background="@android:color/transparent"-->
-        <!--android:clipToPadding="false"-->
-        <!--android:paddingBottom="16dp"-->
-        <!--android:paddingTop="28dp"-->
-        <!--android:visibility="gone"-->
-        <!--tools:listitem="@layout/item_rating" />-->
+    <TextView
+        android:id="@+id/recipe_item_ingredient"
+        style="@style/AppTheme.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recipe_top_card"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        tools:text="Some Recipe" />
 
     <!-- View for empty steps -->
     <LinearLayout

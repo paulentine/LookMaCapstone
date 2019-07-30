@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.paulentine.android.capstone.model.ExtendedIngredient;
 import com.paulentine.android.capstone.model.Recipe;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -47,6 +48,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
     private TextView mTitleView;
     private TextView mReadyInMinutesView;
     private TextView mServingsView;
+    private TextView mIngredientsView;
     private TextView mStepsView;
 
     private ViewGroup mEmptyView;
@@ -67,6 +69,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mTitleView = findViewById(R.id.recipe_item_title);
         mReadyInMinutesView = findViewById((R.id.recipe_item_ready_in_minutes));
         mServingsView = findViewById(R.id.recipe_item_servings);
+        mIngredientsView = findViewById(R.id.recipe_item_ingredient);
         mStepsView = findViewById(R.id.recipe_item_step);
 
         FloatingActionButton buttonStepUp = findViewById(R.id.button_step_up);
@@ -154,6 +157,12 @@ public class RecipeDetailActivity extends AppCompatActivity implements
             stepsData += "\n" + step.getInstruction();
         }
         mStepsView.setText(stepsData);
+
+        String ingredientsData = "";
+        for (ExtendedIngredient extendedIngredient : recipe.getExtendedIngredients()) {
+            ingredientsData += ("\n" + extendedIngredient.getName() + extendedIngredient.getUnit() + extendedIngredient.getAmount());
+        }
+        mIngredientsView.setText(ingredientsData);
 
 //        // Background image
 //        Glide.with(mImageView.getContext())
