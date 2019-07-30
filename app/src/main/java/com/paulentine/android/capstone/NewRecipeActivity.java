@@ -2,9 +2,6 @@ package com.paulentine.android.capstone;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,15 +10,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.paulentine.android.capstone.model.ExtendedIngredient;
 import com.paulentine.android.capstone.model.Recipe;
 import com.paulentine.android.capstone.model.Step;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class NewRecipeActivity extends AppCompatActivity {
@@ -54,6 +53,28 @@ public class NewRecipeActivity extends AppCompatActivity {
             }
         });
 
+        final LinearLayout ingredientsLayout = (LinearLayout) findViewById(R.id.ingredients_linear_layout);
+
+        final Button mNewIngredientButton = findViewById(R.id.recipe_button_new_ingredient);
+        mNewIngredientButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                LinearLayout ingredientLayout = new LinearLayout(ingredientsLayout.getContext());
+
+                EditText editName = new EditText(ingredientLayout.getContext());
+
+                EditText editAmount = new EditText(ingredientLayout.getContext());
+
+                EditText editUnit = new EditText(ingredientLayout.getContext());
+
+                ingredientLayout.addView(editName);
+                ingredientLayout.addView(editAmount);
+                ingredientLayout.addView(editUnit);
+                ingredientsLayout.addView(ingredientLayout);
+            }
+        });
+
         final Button mSaveButton = findViewById(R.id.recipe_button_save);
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,14 +89,38 @@ public class NewRecipeActivity extends AppCompatActivity {
         String title = editTextTitle.getText().toString();
         int readyInMinutes = Integer.parseInt(editTextReadyInMinutes.getText().toString());
         int servings = Integer.parseInt(editTextServings.getText().toString());
+        List<ExtendedIngredient> extendedIngredients = new ArrayList<ExtendedIngredient>();
         List<Step> steps = new ArrayList<Step>();
 
         final LinearLayout stepsLayout = findViewById(R.id.steps_linear_layout);
-        int count = stepsLayout.getChildCount();
+//        int count = stepsLayout.getChildCount();
         for (int stepNum = 0; stepNum < stepsCount; stepNum++) {
             EditText stepField = (EditText)stepsLayout.getChildAt(stepNum);
             String stepInstruction = stepField.getText().toString();
             steps.add(new Step(stepNum, stepInstruction));
+        }
+
+        final LinearLayout ingredientsLayout = findViewById(R.id.ingredients_linear_layout);
+
+        int ingredientsCount = ingredientsLayout.getChildCount();
+        Log.d("ingredientsCount", Integer.toString(ingredientsCount));
+
+        for (int ingNum = 0; ingNum < ingredientsCount; ingNum++) {
+            // Use findViewWithTag
+
+            LinearLayout ingredientLayout = (LinearLayout)ingredientsLayout.getChildAt(ingNum);
+            Log.d("ingredientLayout", (String.valueOf(ingredientLayout)));
+
+            EditText editIngredientName = (EditText) ingredientLayout.getChildAt(0);
+            String ingredientName = editIngredientName.getText().toString();
+
+            EditText editIngredientAmount = (EditText) ingredientLayout.getChildAt(1);
+            Integer ingredientAmount = Integer.parseInt(editIngredientAmount.getText().toString());
+
+            EditText editIngredientUnit = (EditText) ingredientLayout.getChildAt(2);
+            String ingredientUnit = editIngredientUnit.getText().toString();
+
+            extendedIngredients.add(new ExtendedIngredient(ingredientName, ingredientAmount, ingredientUnit));
         }
 
         if (title.trim().isEmpty()) {
@@ -86,7 +131,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         CollectionReference recipesRef = FirebaseFirestore.getInstance()
                 .collection("testRecipes");
 
-        recipesRef.add(new Recipe(id, title, readyInMinutes, servings, steps));
+        recipesRef.add(new Recipe(id, title, readyInMinutes, servings, extendedIngredients, steps));
 
         Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();

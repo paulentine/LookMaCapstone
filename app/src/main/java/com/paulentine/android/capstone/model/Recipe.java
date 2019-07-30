@@ -3,7 +3,10 @@ package com.paulentine.android.capstone.model;
 import android.util.Log;
 
 import com.google.firebase.firestore.IgnoreExtraProperties;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,12 +18,28 @@ public class Recipe {
     public static final String FIELD_READY_IN_MINUTES = "readyInMinutes";
     public static final String FIELD_SERVINGS = "servings";
 
-    private int id;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+
+    @SerializedName("title")
+    @Expose
     private String title;
-    private int readyInMinutes;
-    private int servings;
+
+    @SerializedName("readyInMinutes")
+    @Expose
+    private Integer readyInMinutes;
+
+    @SerializedName("servings")
+    @Expose
+    private Integer servings;
+
+    @SerializedName("extendedIngredients")
+    @Expose
+    private List<ExtendedIngredient> extendedIngredients = new ArrayList<ExtendedIngredient>();
 
     private List<Step> steps;
+
     private int stepCursor;
     public static Recipe currRecipe;
 
@@ -28,13 +47,14 @@ public class Recipe {
         resetCursor();
     }
 
-    public Recipe(int id, String title, int readyInMinutes, int servings, List<Step> steps) {
+    public Recipe(int id, String title, int readyInMinutes, int servings, List<ExtendedIngredient> extendedIngredients, List<Step> steps) {
         this();
         this.id = id;
         this.title = title;
         this.readyInMinutes = readyInMinutes;
         this.servings = servings;
 
+        this.extendedIngredients = extendedIngredients;
         this.steps = steps;
     }
 
@@ -52,13 +72,13 @@ public class Recipe {
         String text = steps.get(stepCursor).getInstruction();
         Log.d("stepCursorInstruction", (text == null) ? "null": text);
         return text;
-//        Log.d("stepCursorInstruction", stepCursorInstruction);
     }
 
     public void resetCursor() {
         this.stepCursor = 0;
         Log.d("resetCursor", "This is reset cursor");
     }
+
     public int getStepCursor() {
         return stepCursor;
     }
@@ -93,6 +113,12 @@ public class Recipe {
 
     public void setServings(int servings) {
         this.servings = servings;
+    }
+
+    public List<ExtendedIngredient> getExtendedIngredients() { return extendedIngredients; }
+
+    public void setExtendedIngredients(List<ExtendedIngredient> extendedIngredients) {
+        this.extendedIngredients = extendedIngredients;
     }
 
     public List<Step> getSteps() {
