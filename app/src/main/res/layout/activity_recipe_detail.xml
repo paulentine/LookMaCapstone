@@ -129,9 +129,9 @@
         android:layout_marginRight="16dp"
         app:srcCompat="@drawable/ic_add_white_24px" />
 
-    <!-- Steps -->
+    <!--Ingredients-->
     <TextView
-        android:id="@+id/recipe_item_step"
+        android:id="@+id/recipe_item_ingredient"
         style="@style/AppTheme.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -140,12 +140,13 @@
         android:textStyle="bold"
         tools:text="Some Recipe" />
 
+    <!-- Steps -->
     <TextView
-        android:id="@+id/recipe_item_ingredient"
+        android:id="@+id/recipe_item_step"
         style="@style/AppTheme.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recipe_top_card"
+        android:layout_below="@+id/recipe_item_ingredient"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         tools:text="Some Recipe" />

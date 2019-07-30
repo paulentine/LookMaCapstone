@@ -160,7 +160,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
 
         String ingredientsData = "";
         for (ExtendedIngredient extendedIngredient : recipe.getExtendedIngredients()) {
-            ingredientsData += ("\n" + extendedIngredient.getName() + extendedIngredient.getUnit() + extendedIngredient.getAmount());
+            ingredientsData += ("\n" + extendedIngredient.getAmount() + " " + extendedIngredient.getUnit() + " of " + extendedIngredient.getName());
         }
         mIngredientsView.setText(ingredientsData);
 
