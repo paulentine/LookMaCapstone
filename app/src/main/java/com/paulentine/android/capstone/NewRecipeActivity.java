@@ -44,6 +44,7 @@ public class NewRecipeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditText editText = new EditText(stepsLayout.getContext());
+                editText.setHint("Pre-heat oven to 400F");
                 stepsCount++;
                 Log.d("stepsCount", Integer.toString(stepsCount));
 //                editText.setText("TextView " + String.valueOf(stepsCount));
