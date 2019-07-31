@@ -10,13 +10,6 @@
     tools:context=".NewRecipeActivity">
 
     <EditText
-        android:id="@+id/edit_text_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ID"
-        android:inputType="text" />
-
-    <EditText
         android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +20,7 @@
         android:id="@+id/edit_text_ready_in_minutes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ready In Minutes:"
+        android:hint="Ready In Minutes"
         android:inputType="text" />
 
     <EditText
@@ -38,27 +31,30 @@
         android:inputType="text" />
 
     <Button
+        android:id="@+id/recipe_button_new_ingredient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#C685F5"
+        android:text="New Ingredient" />
+
+    <Button
         android:id="@+id/recipe_button_new_step"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#B085F5"
         android:text="New Step" />
 
     <Button
         android:id="@+id/recipe_button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#9385F5"
         android:text="Save Recipe" />
-
-    <Button
-        android:id="@+id/recipe_button_new_ingredient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="New Ingredient" />
 
     <LinearLayout
         android:id="@+id/ingredients_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="163dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".NewRecipeActivity">
 
@@ -67,9 +63,9 @@
     <LinearLayout
         android:id="@+id/steps_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="226dp"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/ingredients_linear_layout"
+        android:orientation="vertical"
         tools:context=".NewRecipeActivity">
 
     </LinearLayout>

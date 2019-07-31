@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">Capstone</string>
+    <string name="app_name">Look Ma</string>
     <string name="value_any_category">All food</string>
     <string name="value_any_city">Anywhere</string>
     <string name="value_any_price">Any price</string>
+
+    <string name="helpertext_mins">minutes</string>
+    <string name="helpertext_servings">Serves</string>
 
     <string name="price_1">$</string>
     <string name="price_2">$$</string>

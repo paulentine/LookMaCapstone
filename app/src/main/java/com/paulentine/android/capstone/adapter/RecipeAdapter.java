@@ -24,6 +24,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.paulentine.android.capstone.R;
 import com.paulentine.android.capstone.model.Recipe;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -62,7 +63,6 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView idView;
         TextView titleView;
         TextView readyInMinutesView;
         TextView servingsView;
@@ -80,13 +80,11 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            idView = itemView.findViewById(R.id.recipe_item_id);
             titleView = itemView.findViewById(R.id.recipe_item_title);
-            readyInMinutesView = itemView.findViewById(R.id.recipe_item_helpertext_servings);
-            servingsView = itemView.findViewById(R.id.recipe_item_helpertext_mins);
+            readyInMinutesView = itemView.findViewById(R.id.recipe_item_ready_in_minutes);
+            servingsView = itemView.findViewById(R.id.recipe_item_servings);
 
 //            stepsView = itemView.findViewById(R.id.recipe_item_step);
-//            imageView = itemView.findViewById(R.id.recipe_item_image);
 
 //            imageView = itemView.findViewById(R.id.recipe_item_image);
 //            nameView = itemView.findViewById(R.id.recipe_item_title);
@@ -103,7 +101,6 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
             Recipe recipe = snapshot.toObject(Recipe.class);
             Resources resources = itemView.getResources();
 
-            idView.setText(Integer.toString(recipe.getId()));
             titleView.setText(recipe.getTitle());
             readyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
             servingsView.setText(Integer.toString(recipe.getServings()));

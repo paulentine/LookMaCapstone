@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewRecipeActivity extends AppCompatActivity {
-    private EditText editTextId;
     private EditText editTextTitle;
     private EditText editTextReadyInMinutes;
     private EditText editTextServings;
@@ -35,7 +34,6 @@ public class NewRecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_recipe);
 
-        editTextId = findViewById(R.id.edit_text_id);
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextReadyInMinutes = findViewById(R.id.edit_text_ready_in_minutes);
         editTextServings = findViewById(R.id.edit_text_servings);
@@ -46,6 +44,7 @@ public class NewRecipeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditText editText = new EditText(stepsLayout.getContext());
+                editText.setHint("Pre-heat oven to 400F");
                 stepsCount++;
                 Log.d("stepsCount", Integer.toString(stepsCount));
 //                editText.setText("TextView " + String.valueOf(stepsCount));
@@ -62,15 +61,18 @@ public class NewRecipeActivity extends AppCompatActivity {
 
                 LinearLayout ingredientLayout = new LinearLayout(ingredientsLayout.getContext());
 
-                EditText editName = new EditText(ingredientLayout.getContext());
-
                 EditText editAmount = new EditText(ingredientLayout.getContext());
+                editAmount.setHint("1");
 
                 EditText editUnit = new EditText(ingredientLayout.getContext());
+                editUnit.setHint("cup");
 
-                ingredientLayout.addView(editName);
+                EditText editName = new EditText(ingredientLayout.getContext());
+                editName.setHint("water");
+
                 ingredientLayout.addView(editAmount);
                 ingredientLayout.addView(editUnit);
+                ingredientLayout.addView(editName);
                 ingredientsLayout.addView(ingredientLayout);
             }
         });
@@ -85,7 +87,6 @@ public class NewRecipeActivity extends AppCompatActivity {
     }
 
     private void saveRecipe() {
-        int id = Integer.parseInt(editTextId.getText().toString());
         String title = editTextTitle.getText().toString();
         int readyInMinutes = Integer.parseInt(editTextReadyInMinutes.getText().toString());
         int servings = Integer.parseInt(editTextServings.getText().toString());
@@ -111,14 +112,14 @@ public class NewRecipeActivity extends AppCompatActivity {
             LinearLayout ingredientLayout = (LinearLayout)ingredientsLayout.getChildAt(ingNum);
             Log.d("ingredientLayout", (String.valueOf(ingredientLayout)));
 
-            EditText editIngredientName = (EditText) ingredientLayout.getChildAt(0);
-            String ingredientName = editIngredientName.getText().toString();
+            EditText editIngredientUnit = (EditText) ingredientLayout.getChildAt(1);
+            String ingredientUnit = editIngredientUnit.getText().toString();
 
-            EditText editIngredientAmount = (EditText) ingredientLayout.getChildAt(1);
+            EditText editIngredientAmount = (EditText) ingredientLayout.getChildAt(0);
             Integer ingredientAmount = Integer.parseInt(editIngredientAmount.getText().toString());
 
-            EditText editIngredientUnit = (EditText) ingredientLayout.getChildAt(2);
-            String ingredientUnit = editIngredientUnit.getText().toString();
+            EditText editIngredientName = (EditText) ingredientLayout.getChildAt(2);
+            String ingredientName = editIngredientName.getText().toString();
 
             extendedIngredients.add(new ExtendedIngredient(ingredientName, ingredientAmount, ingredientUnit));
         }
@@ -131,7 +132,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         CollectionReference recipesRef = FirebaseFirestore.getInstance()
                 .collection("testRecipes");
 
-        recipesRef.add(new Recipe(id, title, readyInMinutes, servings, extendedIngredients, steps));
+        recipesRef.add(new Recipe(title, readyInMinutes, servings, extendedIngredients, steps));
 
         Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();

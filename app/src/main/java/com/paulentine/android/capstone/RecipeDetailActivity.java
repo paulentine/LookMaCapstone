@@ -44,7 +44,6 @@ public class RecipeDetailActivity extends AppCompatActivity implements
     public static final String KEY_RECIPE_ID = "key_recipe_id";
 
 //    private ImageView mImageView;
-    private TextView mIdView;
     private TextView mTitleView;
     private TextView mReadyInMinutesView;
     private TextView mServingsView;
@@ -65,7 +64,6 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_recipe_detail);
 
 //        mImageView = findViewById(R.id.recipe_image);
-        mIdView = findViewById(R.id.recipe_item_id);
         mTitleView = findViewById(R.id.recipe_item_title);
         mReadyInMinutesView = findViewById((R.id.recipe_item_ready_in_minutes));
         mServingsView = findViewById(R.id.recipe_item_servings);
@@ -139,8 +137,6 @@ public class RecipeDetailActivity extends AppCompatActivity implements
     }
 
     private void onRecipeLoaded(Recipe recipe) {
-
-        mIdView.setText(Integer.toString(recipe.getId()));
         mTitleView.setText(recipe.getTitle());
         mReadyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
         mServingsView.setText(Integer.toString(recipe.getServings()));

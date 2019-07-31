@@ -18,10 +18,6 @@ public class Recipe {
     public static final String FIELD_READY_IN_MINUTES = "readyInMinutes";
     public static final String FIELD_SERVINGS = "servings";
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-
     @SerializedName("title")
     @Expose
     private String title;
@@ -47,9 +43,8 @@ public class Recipe {
         resetCursor();
     }
 
-    public Recipe(int id, String title, int readyInMinutes, int servings, List<ExtendedIngredient> extendedIngredients, List<Step> steps) {
+    public Recipe(String title, int readyInMinutes, int servings, List<ExtendedIngredient> extendedIngredients, List<Step> steps) {
         this();
-        this.id = id;
         this.title = title;
         this.readyInMinutes = readyInMinutes;
         this.servings = servings;
@@ -58,14 +53,14 @@ public class Recipe {
         this.steps = steps;
     }
 
-    public void nextStep() {
+    public String nextStep() {
         if (stepCursor < (steps.size() -1 )) {
             stepCursor += 1;
             Log.d("stepCursor1", (stepCursor) + " " + steps.size());
 
         }
         Log.d("stepCursor2", (stepCursor) + " " + steps.size());
-        readInstruction();
+        return readInstruction();
     }
 
     public String readInstruction() {
@@ -81,14 +76,6 @@ public class Recipe {
 
     public int getStepCursor() {
         return stepCursor;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
