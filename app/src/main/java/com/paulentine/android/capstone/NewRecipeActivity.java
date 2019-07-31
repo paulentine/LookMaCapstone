@@ -2,6 +2,7 @@ package com.paulentine.android.capstone;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,6 +62,11 @@ public class NewRecipeActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 LinearLayout ingredientLayout = new LinearLayout(ingredientsLayout.getContext());
+//                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+//                        LinearLayout.LayoutParams.WRAP_CONTENT);
+//                ingredientLayout.setGravity(Gravity.CENTER);
+//                ingredientLayout.setLayoutParams(params);
+//                ingredientLayout.setPadding(10, 10, 10, 10);
 
                 EditText editAmount = new EditText(ingredientLayout.getContext());
                 editAmount.setHint("1");
@@ -74,6 +80,7 @@ public class NewRecipeActivity extends AppCompatActivity {
                 ingredientLayout.addView(editAmount);
                 ingredientLayout.addView(editUnit);
                 ingredientLayout.addView(editName);
+
                 ingredientsLayout.addView(ingredientLayout);
             }
         });
