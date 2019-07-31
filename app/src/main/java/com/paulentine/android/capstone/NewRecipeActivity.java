@@ -111,10 +111,10 @@ public class NewRecipeActivity extends AppCompatActivity {
             LinearLayout ingredientLayout = (LinearLayout)ingredientsLayout.getChildAt(ingNum);
             Log.d("ingredientLayout", (String.valueOf(ingredientLayout)));
 
-            EditText editIngredientUnit = (EditText) ingredientLayout.getChildAt(0);
+            EditText editIngredientUnit = (EditText) ingredientLayout.getChildAt(1);
             String ingredientUnit = editIngredientUnit.getText().toString();
 
-            EditText editIngredientAmount = (EditText) ingredientLayout.getChildAt(1);
+            EditText editIngredientAmount = (EditText) ingredientLayout.getChildAt(0);
             Integer ingredientAmount = Integer.parseInt(editIngredientAmount.getText().toString());
 
             EditText editIngredientName = (EditText) ingredientLayout.getChildAt(2);
