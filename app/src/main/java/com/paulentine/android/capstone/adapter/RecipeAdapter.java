@@ -82,8 +82,8 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
             super(itemView);
             idView = itemView.findViewById(R.id.recipe_item_id);
             titleView = itemView.findViewById(R.id.recipe_item_title);
-            readyInMinutesView = itemView.findViewById(R.id.recipe_item_helpertext_servings);
-            servingsView = itemView.findViewById(R.id.recipe_item_helpertext_mins);
+            readyInMinutesView = itemView.findViewById(R.id.recipe_item_ready_in_minutes);
+            servingsView = itemView.findViewById(R.id.recipe_item_servings);
 
 //            stepsView = itemView.findViewById(R.id.recipe_item_step);
 //            imageView = itemView.findViewById(R.id.recipe_item_image);
