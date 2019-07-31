@@ -96,4 +96,9 @@
         <item name="android:layout_height">150dp</item>
     </style>
 
+    <!-- Splash Screen theme -->
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+    </style>
+
 </resources>
