@@ -30,6 +30,10 @@ public class Recipe {
     @Expose
     private Integer servings;
 
+    @SerializedName("image")
+    @Expose
+    private String image;
+
     @SerializedName("extendedIngredients")
     @Expose
     private List<ExtendedIngredient> extendedIngredients = new ArrayList<ExtendedIngredient>();
@@ -43,11 +47,12 @@ public class Recipe {
         resetCursor();
     }
 
-    public Recipe(String title, int readyInMinutes, int servings, List<ExtendedIngredient> extendedIngredients, List<Step> steps) {
+    public Recipe(String title, int readyInMinutes, int servings, String image, List<ExtendedIngredient> extendedIngredients, List<Step> steps) {
         this();
         this.title = title;
         this.readyInMinutes = readyInMinutes;
         this.servings = servings;
+        this.image = image;
 
         this.extendedIngredients = extendedIngredients;
         this.steps = steps;
@@ -100,6 +105,14 @@ public class Recipe {
 
     public void setServings(int servings) {
         this.servings = servings;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public List<ExtendedIngredient> getExtendedIngredients() { return extendedIngredients; }

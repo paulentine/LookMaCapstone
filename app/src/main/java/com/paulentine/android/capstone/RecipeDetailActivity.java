@@ -19,11 +19,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.paulentine.android.capstone.model.ExtendedIngredient;
 import com.paulentine.android.capstone.model.Recipe;
@@ -43,15 +45,12 @@ public class RecipeDetailActivity extends AppCompatActivity implements
 
     public static final String KEY_RECIPE_ID = "key_recipe_id";
 
-//    private ImageView mImageView;
+    private ImageView mImageView;
     private TextView mTitleView;
     private TextView mReadyInMinutesView;
     private TextView mServingsView;
     private TextView mIngredientsView;
     private TextView mStepsView;
-
-    private ViewGroup mEmptyView;
-    private RecyclerView mRatingsRecycler;
 
     private FirebaseFirestore mFirestore;
     private DocumentReference mRecipeRef;
@@ -60,15 +59,14 @@ public class RecipeDetailActivity extends AppCompatActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_detail);
 
-//        mImageView = findViewById(R.id.recipe_image);
         mTitleView = findViewById(R.id.recipe_item_title);
         mReadyInMinutesView = findViewById((R.id.recipe_item_ready_in_minutes));
         mServingsView = findViewById(R.id.recipe_item_servings);
         mIngredientsView = findViewById(R.id.recipe_item_ingredient);
+        mImageView = findViewById(R.id.recipe_image);
         mStepsView = findViewById(R.id.recipe_item_step);
 
         FloatingActionButton buttonStepUp = findViewById(R.id.button_step_up);
@@ -142,6 +140,11 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mReadyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
         mServingsView.setText(Integer.toString(recipe.getServings()));
 
+        // Background image
+        Glide.with(mImageView.getContext())
+                .load(recipe.getImage())
+                .into(mImageView);
+
         // Bind recipe from snapshot to recipe model
         this.recipeModel = recipe;
         recipeModel.resetCursor();
@@ -160,11 +163,6 @@ public class RecipeDetailActivity extends AppCompatActivity implements
             ingredientsData += ("\n" + extendedIngredient.getAmount() + " " + extendedIngredient.getUnit() + " of " + extendedIngredient.getName());
         }
         mIngredientsView.setText(ingredientsData);
-
-//        // Background image
-//        Glide.with(mImageView.getContext())
-//                .load(recipe.getImage())
-//                .into(mImageView);
     }
 
     public void onBackArrowClicked(View view) {

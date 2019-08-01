@@ -28,47 +28,26 @@ public class NewRecipeActivity extends AppCompatActivity {
     private EditText editTextTitle;
     private EditText editTextReadyInMinutes;
     private EditText editTextServings;
+    private EditText editTextImage;
     private int stepsCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_recipe);
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextReadyInMinutes = findViewById(R.id.edit_text_ready_in_minutes);
         editTextServings = findViewById(R.id.edit_text_servings);
+        editTextImage = findViewById(R.id.edit_text_image);
 
-        final LinearLayout stepsLayout = findViewById(R.id.steps_linear_layout);
-        final Button mNewStepButton = findViewById(R.id.recipe_button_new_step);
-        mNewStepButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                EditText editText = new EditText(stepsLayout.getContext());
-                editText.setHint("Pre-heat oven to 400F");
-                editText.setTextAppearance(R.style.AppTheme_Body1);
-
-                stepsCount++;
-                Log.d("stepsCount", Integer.toString(stepsCount));
-//                editText.setText("TextView " + String.valueOf(stepsCount));
-                stepsLayout.addView(editText);
-            }
-        });
-
+        // Ingredients
         final LinearLayout ingredientsLayout = (LinearLayout) findViewById(R.id.ingredients_linear_layout);
-
         final Button mNewIngredientButton = findViewById(R.id.recipe_button_new_ingredient);
         mNewIngredientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 LinearLayout ingredientLayout = new LinearLayout(ingredientsLayout.getContext());
-//                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT);
-//                ingredientLayout.setGravity(Gravity.CENTER);
-//                ingredientLayout.setLayoutParams(params);
-//                ingredientLayout.setPadding(10, 10, 10, 10);
 
                 EditText editAmount = new EditText(ingredientLayout.getContext());
                 editAmount.setTextAppearance(R.style.AppTheme_Body1);
@@ -90,6 +69,21 @@ public class NewRecipeActivity extends AppCompatActivity {
             }
         });
 
+        // Steps
+        final LinearLayout stepsLayout = findViewById(R.id.steps_linear_layout);
+        final Button mNewStepButton = findViewById(R.id.recipe_button_new_step);
+        mNewStepButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText editText = new EditText(stepsLayout.getContext());
+                editText.setHint("Pre-heat oven to 400F");
+                editText.setTextAppearance(R.style.AppTheme_Body1);
+                stepsLayout.addView(editText);
+
+                stepsCount++;
+            }
+        });
+
         final Button mSaveButton = findViewById(R.id.recipe_button_save);
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,25 +97,16 @@ public class NewRecipeActivity extends AppCompatActivity {
         String title = editTextTitle.getText().toString();
         int readyInMinutes = Integer.parseInt(editTextReadyInMinutes.getText().toString());
         int servings = Integer.parseInt(editTextServings.getText().toString());
+        String image = editTextImage.getText().toString();
         List<ExtendedIngredient> extendedIngredients = new ArrayList<ExtendedIngredient>();
         List<Step> steps = new ArrayList<Step>();
 
-        final LinearLayout stepsLayout = findViewById(R.id.steps_linear_layout);
-//        int count = stepsLayout.getChildCount();
-        for (int stepNum = 0; stepNum < stepsCount; stepNum++) {
-            EditText stepField = (EditText)stepsLayout.getChildAt(stepNum);
-            String stepInstruction = stepField.getText().toString();
-            steps.add(new Step(stepNum, stepInstruction));
-        }
-
+        // Ingredients
         final LinearLayout ingredientsLayout = findViewById(R.id.ingredients_linear_layout);
-
         int ingredientsCount = ingredientsLayout.getChildCount();
         Log.d("ingredientsCount", Integer.toString(ingredientsCount));
 
         for (int ingNum = 0; ingNum < ingredientsCount; ingNum++) {
-            // Use findViewWithTag
-
             LinearLayout ingredientLayout = (LinearLayout)ingredientsLayout.getChildAt(ingNum);
             Log.d("ingredientLayout", (String.valueOf(ingredientLayout)));
 
@@ -137,6 +122,14 @@ public class NewRecipeActivity extends AppCompatActivity {
             extendedIngredients.add(new ExtendedIngredient(ingredientName, ingredientAmount, ingredientUnit));
         }
 
+        // Steps
+        final LinearLayout stepsLayout = findViewById(R.id.steps_linear_layout);
+        for (int stepNum = 0; stepNum < stepsCount; stepNum++) {
+            EditText stepField = (EditText)stepsLayout.getChildAt(stepNum);
+            String stepInstruction = stepField.getText().toString();
+            steps.add(new Step(stepNum, stepInstruction));
+        }
+
         if (title.trim().isEmpty()) {
             Toast.makeText(this, "Please insert a title", Toast.LENGTH_SHORT).show();
             return;
@@ -145,7 +138,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         CollectionReference recipesRef = FirebaseFirestore.getInstance()
                 .collection("testImgs");
 
-        recipesRef.add(new Recipe(title, readyInMinutes, servings, extendedIngredients, steps));
+        recipesRef.add(new Recipe(title, readyInMinutes, servings, image, extendedIngredients, steps));
 
         Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();
