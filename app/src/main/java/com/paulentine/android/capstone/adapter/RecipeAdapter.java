@@ -19,6 +19,7 @@ import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -66,33 +67,14 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
         TextView titleView;
         TextView readyInMinutesView;
         TextView servingsView;
-//        TextView stepsView;
-
-//        ImageView imageView;
-
-//        ImageView imageView;
-//        TextView nameView;
-//        MaterialRatingBar ratingBar;
-//        TextView numRatingsView;
-//        TextView priceView;
-//        TextView categoryView;
-//        TextView cityView;
+        ImageView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             titleView = itemView.findViewById(R.id.recipe_item_title);
             readyInMinutesView = itemView.findViewById(R.id.recipe_item_ready_in_minutes);
             servingsView = itemView.findViewById(R.id.recipe_item_servings);
-
-//            stepsView = itemView.findViewById(R.id.recipe_item_step);
-
-//            imageView = itemView.findViewById(R.id.recipe_item_image);
-//            nameView = itemView.findViewById(R.id.recipe_item_title);
-//            ratingBar = itemView.findViewById(R.id.recipe_item_rating);
-//            numRatingsView = itemView.findViewById(R.id.recipe_item_num_ratings);
-//            priceView = itemView.findViewById(R.id.recipe_item_id);
-//            categoryView = itemView.findViewById(R.id.recipe_item_ready_in_minutes);
-//            cityView = itemView.findViewById(R.id.recipe_item_servings);
+            imageView = itemView.findViewById(R.id.recipe_item_image);
         }
 
         public void bind(final DocumentSnapshot snapshot,
@@ -105,25 +87,10 @@ public class RecipeAdapter extends FirestoreAdapter<RecipeAdapter.ViewHolder> {
             readyInMinutesView.setText(Integer.toString(recipe.getReadyInMinutes()));
             servingsView.setText(Integer.toString(recipe.getServings()));
 
-//            String data = "";
-//            for (Step step : recipe.getSteps()) {
-//                data += "\n" + step.getInstruction();
-////                data += "\n" + step;
-//            }
-//            stepsView.setText(data);
-
-//            // Load image
-//            Glide.with(imageView.getContext())
-//                    .load(recipe.getImage())
-//                    .into(imageView);
-
-//            nameView .setText(recipe.getTitle());
-//            ratingBar.setRating((float) recipe.getAvgRating());
-//            cityView.setText(recipe.getCity());
-//            categoryView.setText(recipe.getCategory());
-//            numRatingsView.setText(resources.getString(R.string.fmt_num_ratings,
-//                    recipe.getNumRatings()));
-//            priceView.setText(RecipeUtil.getPriceString(recipe));
+            // Load image
+            Glide.with(imageView.getContext())
+                    .load(recipe.getImage())
+                    .into(imageView);
 
             // Click listener
             itemView.setOnClickListener(new View.OnClickListener() {
