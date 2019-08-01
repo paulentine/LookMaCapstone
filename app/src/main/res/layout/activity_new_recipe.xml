@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:theme="@style/AppTheme"
-        app:logo="@drawable/ic_recipe_white_24px"
+        app:logo="@drawable/ic_voice_m"
         app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
         app:title="Create New Recipe"
         app:titleMarginStart="24dp"
