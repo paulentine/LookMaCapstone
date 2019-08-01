@@ -1,0 +1,110 @@
+{
+  "results": [
+    {
+      "id": 481701,
+      "title": "Homemade Cosmic Brownies",
+      "readyInMinutes": 28,
+      "servings": 24,
+      "image": "Homemade-Cosmic-Brownies-481701.jpg",
+      "imageUrls": [
+        "Homemade-Cosmic-Brownies-481701.jpg"
+      ]
+    },
+    {
+      "id": 631694,
+      "title": "Tiramisu Brownies",
+      "readyInMinutes": 75,
+      "servings": 24,
+      "image": "Tiramisu-Brownies-631694.jpg",
+      "imageUrls": [
+        "Tiramisu-Brownies-631694.jpg"
+      ]
+    },
+    {
+      "id": 210171,
+      "title": "Best ever chocolate raspberry brownies",
+      "readyInMinutes": 50,
+      "servings": 15,
+      "image": "Best-ever-chocolate-raspberry-brownies-210171.jpg",
+      "imageUrls": [
+        "Best-ever-chocolate-raspberry-brownies-210171.jpg"
+      ]
+    },
+    {
+      "id": 220529,
+      "title": "Beetroot brownies",
+      "readyInMinutes": 55,
+      "servings": 15,
+      "image": "Beetroot-brownies-220529.jpg",
+      "imageUrls": [
+        "Beetroot-brownies-220529.jpg"
+      ]
+    },
+    {
+      "id": 608796,
+      "title": "Cosmic Brownies",
+      "readyInMinutes": 75,
+      "servings": 16,
+      "image": "Cosmic-Brownies-608796.jpg",
+      "imageUrls": [
+        "Cosmic-Brownies-608796.jpg"
+      ]
+    },
+    {
+      "id": 224616,
+      "title": "The ultimate makeover: chocolate brownies",
+      "readyInMinutes": 60,
+      "servings": 12,
+      "image": "The-ultimate-makeover--Chocolate-brownies-224616.jpg",
+      "imageUrls": [
+        "The-ultimate-makeover--Chocolate-brownies-224616.jpg"
+      ]
+    },
+    {
+      "id": 602749,
+      "title": "Thick & Chewy Better Than The Boxed Brownies",
+      "readyInMinutes": 40,
+      "servings": 12,
+      "image": "Thick---Chewy-Better-Than-The-Boxed-Brownies-602749.jpg",
+      "imageUrls": [
+        "Thick---Chewy-Better-Than-The-Boxed-Brownies-602749.jpg"
+      ]
+    },
+    {
+      "id": 620159,
+      "title": "Homemade Little Debbie Fudge Brownies",
+      "readyInMinutes": 30,
+      "servings": 24,
+      "image": "Homemade-Little-Debbie-Fudge-Brownies-620159.jpg",
+      "imageUrls": [
+        "Homemade-Little-Debbie-Fudge-Brownies-620159.jpg"
+      ]
+    },
+    {
+      "id": 218051,
+      "title": "Chocolate gingerbread brownie bars with fudgy icing",
+      "readyInMinutes": 55,
+      "servings": 15,
+      "image": "Chocolate-gingerbread-brownie-bars-with-fudgy-icing-218051.jpg",
+      "imageUrls": [
+        "Chocolate-gingerbread-brownie-bars-with-fudgy-icing-218051.jpg"
+      ]
+    },
+    {
+      "id": 209723,
+      "title": "Alex's mega brownies",
+      "readyInMinutes": 45,
+      "servings": 16,
+      "image": "Alexs-mega-brownies-209723.jpg",
+      "imageUrls": [
+        "Alexs-mega-brownies-209723.jpg"
+      ]
+    }
+  ],
+  "baseUri": "https://spoonacular.com/recipeImages/",
+  "offset": 0,
+  "number": 10,
+  "totalResults": 84,
+  "processingTimeMs": 130,
+  "expires": 1564878820458
+}
