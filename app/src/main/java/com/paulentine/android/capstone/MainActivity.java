@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements
         mFirestore = FirebaseFirestore.getInstance();
 
         // Get the 50 highest rated recipes
-        mQuery = mFirestore.collection("testRecipes")
+        mQuery = mFirestore.collection("demo")
                 .orderBy("title", Query.Direction.DESCENDING)
                 .limit(LIMIT);
     }

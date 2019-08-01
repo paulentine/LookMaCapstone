@@ -54,13 +54,20 @@
             android:hint="Servings"
             android:inputType="text" />
 
+        <EditText
+            android:id="@+id/edit_text_image"
+            style="@style/AppTheme.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Image URL"
+            android:inputType="text" />
+
         <Button
             android:id="@+id/recipe_button_new_ingredient"
             style="@style/AppTheme.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/edit_text_servings"
-            android:layout_alignBottom="@+id/edit_text_servings"
+            android:layout_alignTop="@id/edit_text_image"
             android:backgroundTint="#C685F5"
             android:text="Add Ingredient"
             android:textColor="@android:color/white" />
@@ -71,8 +78,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/edit_text_servings"
-            android:layout_alignBottom="@+id/edit_text_servings"
-            android:layout_toRightOf="@+id/recipe_button_new_ingredient"
             android:backgroundTint="#B085F5"
             android:text="Add Step"
             android:textColor="@android:color/white" />

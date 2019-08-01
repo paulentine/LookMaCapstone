@@ -19,11 +19,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.paulentine.android.capstone.model.ExtendedIngredient;
 import com.paulentine.android.capstone.model.Recipe;
@@ -43,7 +45,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
 
     public static final String KEY_RECIPE_ID = "key_recipe_id";
 
-//    private ImageView mImageView;
+    private ImageView mImageView;
     private TextView mTitleView;
     private TextView mReadyInMinutesView;
     private TextView mServingsView;
@@ -64,7 +66,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_detail);
 
-//        mImageView = findViewById(R.id.recipe_image);
+        mImageView = findViewById(R.id.recipe_image);
         mTitleView = findViewById(R.id.recipe_item_title);
         mReadyInMinutesView = findViewById((R.id.recipe_item_ready_in_minutes));
         mServingsView = findViewById(R.id.recipe_item_servings);
@@ -92,7 +94,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mFirestore = FirebaseFirestore.getInstance();
 
         // Get reference to the recipe
-        mRecipeRef = mFirestore.collection("testRecipes").document(recipeId);
+        mRecipeRef = mFirestore.collection("demo").document(recipeId);
     }
 
     @Override
@@ -161,10 +163,10 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         }
         mIngredientsView.setText(ingredientsData);
 
-//        // Background image
-//        Glide.with(mImageView.getContext())
-//                .load(recipe.getImage())
-//                .into(mImageView);
+        // Background image
+        Glide.with(mImageView.getContext())
+                .load(recipe.getImage())
+                .into(mImageView);
     }
 
     public void onBackArrowClicked(View view) {
