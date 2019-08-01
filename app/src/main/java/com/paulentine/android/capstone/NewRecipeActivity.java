@@ -28,6 +28,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     private EditText editTextTitle;
     private EditText editTextReadyInMinutes;
     private EditText editTextServings;
+    private EditText editTextImage;
     private int stepsCount;
 
     @Override
@@ -39,6 +40,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextReadyInMinutes = findViewById(R.id.edit_text_ready_in_minutes);
         editTextServings = findViewById(R.id.edit_text_servings);
+        editTextImage = findViewById(R.id.edit_text_image);
 
         final LinearLayout stepsLayout = findViewById(R.id.steps_linear_layout);
         final Button mNewStepButton = findViewById(R.id.recipe_button_new_step);
@@ -64,11 +66,6 @@ public class NewRecipeActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 LinearLayout ingredientLayout = new LinearLayout(ingredientsLayout.getContext());
-//                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-//                        LinearLayout.LayoutParams.WRAP_CONTENT);
-//                ingredientLayout.setGravity(Gravity.CENTER);
-//                ingredientLayout.setLayoutParams(params);
-//                ingredientLayout.setPadding(10, 10, 10, 10);
 
                 EditText editAmount = new EditText(ingredientLayout.getContext());
                 editAmount.setTextAppearance(R.style.AppTheme_Body1);
@@ -103,11 +100,11 @@ public class NewRecipeActivity extends AppCompatActivity {
         String title = editTextTitle.getText().toString();
         int readyInMinutes = Integer.parseInt(editTextReadyInMinutes.getText().toString());
         int servings = Integer.parseInt(editTextServings.getText().toString());
+        String image = editTextImage.getText().toString();
         List<ExtendedIngredient> extendedIngredients = new ArrayList<ExtendedIngredient>();
         List<Step> steps = new ArrayList<Step>();
 
         final LinearLayout stepsLayout = findViewById(R.id.steps_linear_layout);
-//        int count = stepsLayout.getChildCount();
         for (int stepNum = 0; stepNum < stepsCount; stepNum++) {
             EditText stepField = (EditText)stepsLayout.getChildAt(stepNum);
             String stepInstruction = stepField.getText().toString();
@@ -143,9 +140,9 @@ public class NewRecipeActivity extends AppCompatActivity {
         }
 
         CollectionReference recipesRef = FirebaseFirestore.getInstance()
-                .collection("testRecipes");
+                .collection("demo");
 
-        recipesRef.add(new Recipe(title, readyInMinutes, servings, extendedIngredients, steps));
+        recipesRef.add(new Recipe(title, readyInMinutes, servings, image, extendedIngredients, steps));
 
         Toast.makeText(this, "Recipe added", Toast.LENGTH_SHORT).show();
         finish();
