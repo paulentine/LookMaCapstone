@@ -1,6 +1,7 @@
 package com.paulentine.android.capstone.model;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.IgnoreExtraProperties;
 import com.google.gson.annotations.Expose;
@@ -8,6 +9,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * Recipe POJO.
@@ -62,7 +65,6 @@ public class Recipe {
         if (stepCursor < (steps.size() -1 )) {
             stepCursor += 1;
             Log.d("stepCursor1", (stepCursor) + " " + steps.size());
-
         }
         Log.d("stepCursor2", (stepCursor) + " " + steps.size());
         return readInstruction();
@@ -75,7 +77,7 @@ public class Recipe {
     }
 
     public void resetCursor() {
-        this.stepCursor = 0;
+        this.stepCursor = -1;
         Log.d("resetCursor", "This is reset cursor");
     }
 
