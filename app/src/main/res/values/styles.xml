@@ -78,6 +78,11 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="AppTheme.Body3">
+        <item name="android:fontFamily">@font/open</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="AppTheme.Caption">
         <item name="android:fontFamily">@font/neutra</item>
         <item name="android:textSize">12sp</item>

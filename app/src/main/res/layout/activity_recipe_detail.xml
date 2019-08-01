@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#FFFDFD"
     tools:context="com.paulentine.android.capstone.RecipeDetailActivity">
 
     <RelativeLayout
@@ -133,14 +133,13 @@
 
     <TextView
         android:id="@+id/recipe_item_ingredient"
-        style="@style/AppTheme.Body1"
+        style="@style/AppTheme.Body3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recipe_item_helpertext_ingredient"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="22dp"
         android:textColor="@color/almostBlack"
-        android:textStyle="bold"
         tools:text="1 cup of sugar" />
 
     <!-- Steps -->
@@ -160,14 +159,13 @@
 
     <TextView
         android:id="@+id/recipe_item_step"
-        style="@style/AppTheme.Body1"
+        style="@style/AppTheme.Body3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recipe_item_helpertext_step"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="22dp"
-        android:textColor="@color/almostBlack"
-        android:textStyle="bold"
+        android:textColor="#252525"
         tools:text="Preheat oven to 400F" />
 
     <!-- View for empty steps -->
