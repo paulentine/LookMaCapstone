@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.paulentine.android.capstone.RecipeDetailActivity">
+    tools:context=".SearchDetailActivity">
 
     <RelativeLayout
         android:id="@+id/recipe_top_card"
@@ -115,7 +115,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="-28dp"
-        app:srcCompat="@android:drawable/ic_btn_speak_now" />
+        app:srcCompat="@drawable/ic_add_white_24px" />
 
     <!--Ingredients-->
     <TextView
@@ -169,31 +169,5 @@
         android:textColor="@color/almostBlack"
         android:textStyle="bold"
         tools:text="Preheat oven to 400F" />
-
-    <!-- View for empty steps -->
-    <LinearLayout
-        android:id="@+id/view_empty_steps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/recipe_top_card"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone"
-        tools:visibility="visible">
-
-        <ImageView
-            style="@style/AppTheme.PizzaGuy"
-            android:src="@drawable/pizza_monster" />
-
-        <TextView
-            style="@style/AppTheme.Body1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/message_no_reviews"
-            android:textColor="@color/greyDisabled" />
-
-    </LinearLayout>
 
 </RelativeLayout>

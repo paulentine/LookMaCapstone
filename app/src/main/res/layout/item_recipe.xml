@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/recipe_item_image"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="-6dp"
         android:layout_toLeftOf="@+id/recipe_item_id"
         android:layout_toRightOf="@+id/recipe_item_image"
         android:ellipsize="end"

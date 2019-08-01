@@ -403,202 +403,196 @@
       }
     ]
   },
-  "instructions": "Instructions\n\nIn a large bowl, melt the chocolate. Stir until smooth and leave it to cool.\n\nHeat the oven to 350F. Line a 13 x 9 baking pan with parchment paper.\n\nAdd chocolate to a mixing bowl with the paddle attachment on. Beat in the butter followed by 1 cup of sugar and the 4 eggs and 4 egg whites. Add the flour and mix on low speed until just combined. Pour the batter into the prepared baking pan, reserving 1 cup of the brownie batter.\n\nLay the ladyfingers upside down on top of the batter, and push down slightly. Using a pastry brush, carefully brush the brewed coffee over the ladyfingers until they are saturated.\n\nIn another bowl, combine the mascarpone cheese, cream cheese, and 1/4 cup of sugar, 4 egg whites and vanilla extract. Spread topping over ladyfingers over ladyfingers. Place spoonful of brownie batter on top of the creamy filling and swirl it lightly with a toothpick or knife.\n\nBake for 45 to 50 minutes or until center is almost set and brownies begin to pull away from sides of pan. Cool completely in the pan before slicing it.",
-  "analyzedInstructions": [
+  "steps": [
     {
-      "name": "",
-      "steps": [
+      "number": 1,
+      "step": "In a large bowl, melt the chocolate. Stir until smooth and leave it to cool.",
+      "ingredients": [],
+      "equipment": [
         {
-          "number": 1,
-          "step": "In a large bowl, melt the chocolate. Stir until smooth and leave it to cool.",
-          "ingredients": [],
-          "equipment": [
-            {
-              "id": 404783,
-              "name": "bowl",
-              "image": "bowl.jpg"
-            }
-          ]
+          "id": 404783,
+          "name": "bowl",
+          "image": "bowl.jpg"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "step": "Heat the oven to 350F. Line a 13 x 9 baking pan with parchment paper.",
+      "ingredients": [],
+      "equipment": [
+        {
+          "id": 404770,
+          "name": "baking paper",
+          "image": "baking-paper.jpg"
         },
         {
-          "number": 2,
-          "step": "Heat the oven to 350F. Line a 13 x 9 baking pan with parchment paper.",
-          "ingredients": [],
-          "equipment": [
-            {
-              "id": 404770,
-              "name": "baking paper",
-              "image": "baking-paper.jpg"
-            },
-            {
-              "id": 404646,
-              "name": "baking pan",
-              "image": "roasting-pan.jpg"
-            },
-            {
-              "id": 404784,
-              "name": "oven",
-              "image": "oven.jpg",
-              "temperature": {
-                "number": 350,
-                "unit": "Fahrenheit"
-              }
-            }
-          ]
+          "id": 404646,
+          "name": "baking pan",
+          "image": "roasting-pan.jpg"
         },
         {
-          "number": 3,
-          "step": "Add chocolate to a mixing bowl with the paddle attachment on. Beat in the butter followed by 1 cup of sugar and the 4 eggs and 4 egg whites.",
-          "ingredients": [
-            {
-              "id": 1124,
-              "name": "egg whites",
-              "image": "egg-white.jpg"
-            },
-            {
-              "id": 19335,
-              "name": "sugar",
-              "image": "sugar-in-bowl.png"
-            },
-            {
-              "id": 1123,
-              "name": "egg",
-              "image": "egg.png"
-            }
-          ],
-          "equipment": [
-            {
-              "id": 405907,
-              "name": "mixing bowl",
-              "image": "mixing-bowl.jpg"
-            }
-          ]
-        },
-        {
-          "number": 4,
-          "step": "Add the flour and mix on low speed until just combined.",
-          "ingredients": [],
-          "equipment": []
-        },
-        {
-          "number": 5,
-          "step": "Pour the batter into the prepared baking pan, reserving 1 cup of the brownie batter.",
-          "ingredients": [],
-          "equipment": [
-            {
-              "id": 404646,
-              "name": "baking pan",
-              "image": "roasting-pan.jpg"
-            }
-          ]
-        },
-        {
-          "number": 6,
-          "step": "Lay the ladyfingers upside down on top of the batter, and push down slightly. Using a pastry brush, carefully brush the brewed coffee over the ladyfingers until they are saturated.",
-          "ingredients": [
-            {
-              "id": 14209,
-              "name": "brewed coffee",
-              "image": "brewed-coffee.jpg"
-            },
-            {
-              "id": 18423,
-              "name": "ladyfingers",
-              "image": "ladyfingers.png"
-            }
-          ],
-          "equipment": [
-            {
-              "id": 404764,
-              "name": "pastry brush",
-              "image": "pastry-brush.jpg"
-            }
-          ]
-        },
-        {
-          "number": 7,
-          "step": "In another bowl, combine the mascarpone cheese, cream cheese, and 1/4 cup of sugar, 4 egg whites and vanilla extract.",
-          "ingredients": [
-            {
-              "id": 93820,
-              "name": "mascarpone",
-              "image": "white-cream-fluffy.jpg"
-            },
-            {
-              "id": 2050,
-              "name": "vanilla extract",
-              "image": "vanilla-extract.jpg"
-            },
-            {
-              "id": 1017,
-              "name": "cream cheese",
-              "image": "cream-cheese.jpg"
-            },
-            {
-              "id": 1124,
-              "name": "egg whites",
-              "image": "egg-white.jpg"
-            },
-            {
-              "id": 19335,
-              "name": "sugar",
-              "image": "sugar-in-bowl.png"
-            }
-          ],
-          "equipment": [
-            {
-              "id": 404783,
-              "name": "bowl",
-              "image": "bowl.jpg"
-            }
-          ]
-        },
-        {
-          "number": 8,
-          "step": "Spread topping over ladyfingers over ladyfingers.",
-          "ingredients": [
-            {
-              "id": 18423,
-              "name": "ladyfingers",
-              "image": "ladyfingers.png"
-            }
-          ],
-          "equipment": []
-        },
-        {
-          "number": 9,
-          "step": "Place spoonful of brownie batter on top of the creamy filling and swirl it lightly with a toothpick or knife.",
-          "ingredients": [],
-          "equipment": [
-            {
-              "id": 404644,
-              "name": "toothpicks",
-              "image": "toothpicks.jpg"
-            },
-            {
-              "id": 404745,
-              "name": "knife",
-              "image": "chefs-knife.jpg"
-            }
-          ]
-        },
-        {
-          "number": 10,
-          "step": "Bake for 45 to 50 minutes or until center is almost set and brownies begin to pull away from sides of pan. Cool completely in the pan before slicing it.",
-          "ingredients": [],
-          "equipment": [
-            {
-              "id": 404645,
-              "name": "frying pan",
-              "image": "pan.png"
-            }
-          ],
-          "length": {
-            "number": 45,
-            "unit": "minutes"
+          "id": 404784,
+          "name": "oven",
+          "image": "oven.jpg",
+          "temperature": {
+            "number": 350,
+            "unit": "Fahrenheit"
           }
         }
       ]
+    },
+    {
+      "number": 3,
+      "step": "Add chocolate to a mixing bowl with the paddle attachment on. Beat in the butter followed by 1 cup of sugar and the 4 eggs and 4 egg whites.",
+      "ingredients": [
+        {
+          "id": 1124,
+          "name": "egg whites",
+          "image": "egg-white.jpg"
+        },
+        {
+          "id": 19335,
+          "name": "sugar",
+          "image": "sugar-in-bowl.png"
+        },
+        {
+          "id": 1123,
+          "name": "egg",
+          "image": "egg.png"
+        }
+      ],
+      "equipment": [
+        {
+          "id": 405907,
+          "name": "mixing bowl",
+          "image": "mixing-bowl.jpg"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "step": "Add the flour and mix on low speed until just combined.",
+      "ingredients": [],
+      "equipment": []
+    },
+    {
+      "number": 5,
+      "step": "Pour the batter into the prepared baking pan, reserving 1 cup of the brownie batter.",
+      "ingredients": [],
+      "equipment": [
+        {
+          "id": 404646,
+          "name": "baking pan",
+          "image": "roasting-pan.jpg"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "step": "Lay the ladyfingers upside down on top of the batter, and push down slightly. Using a pastry brush, carefully brush the brewed coffee over the ladyfingers until they are saturated.",
+      "ingredients": [
+        {
+          "id": 14209,
+          "name": "brewed coffee",
+          "image": "brewed-coffee.jpg"
+        },
+        {
+          "id": 18423,
+          "name": "ladyfingers",
+          "image": "ladyfingers.png"
+        }
+      ],
+      "equipment": [
+        {
+          "id": 404764,
+          "name": "pastry brush",
+          "image": "pastry-brush.jpg"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "step": "In another bowl, combine the mascarpone cheese, cream cheese, and 1/4 cup of sugar, 4 egg whites and vanilla extract.",
+      "ingredients": [
+        {
+          "id": 93820,
+          "name": "mascarpone",
+          "image": "white-cream-fluffy.jpg"
+        },
+        {
+          "id": 2050,
+          "name": "vanilla extract",
+          "image": "vanilla-extract.jpg"
+        },
+        {
+          "id": 1017,
+          "name": "cream cheese",
+          "image": "cream-cheese.jpg"
+        },
+        {
+          "id": 1124,
+          "name": "egg whites",
+          "image": "egg-white.jpg"
+        },
+        {
+          "id": 19335,
+          "name": "sugar",
+          "image": "sugar-in-bowl.png"
+        }
+      ],
+      "equipment": [
+        {
+          "id": 404783,
+          "name": "bowl",
+          "image": "bowl.jpg"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "step": "Spread topping over ladyfingers over ladyfingers.",
+      "ingredients": [
+        {
+          "id": 18423,
+          "name": "ladyfingers",
+          "image": "ladyfingers.png"
+        }
+      ],
+      "equipment": []
+    },
+    {
+      "number": 9,
+      "step": "Place spoonful of brownie batter on top of the creamy filling and swirl it lightly with a toothpick or knife.",
+      "ingredients": [],
+      "equipment": [
+        {
+          "id": 404644,
+          "name": "toothpicks",
+          "image": "toothpicks.jpg"
+        },
+        {
+          "id": 404745,
+          "name": "knife",
+          "image": "chefs-knife.jpg"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "step": "Bake for 45 to 50 minutes or until center is almost set and brownies begin to pull away from sides of pan. Cool completely in the pan before slicing it.",
+      "ingredients": [],
+      "equipment": [
+        {
+          "id": 404645,
+          "name": "frying pan",
+          "image": "pan.png"
+        }
+      ],
+      "length": {
+        "number": 45,
+        "unit": "minutes"
+      }
     }
   ]
 }
