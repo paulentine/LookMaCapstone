@@ -1,73 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".NewRecipeActivity">
+    android:background="#E0E0E0"
+    tools:context="com.paulentine.android.capstone.NewRecipeActivity">
 
-    <EditText
-        android:id="@+id/edit_text_title"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"
-        android:inputType="textMultiLine" />
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme"
+        app:logo="@drawable/ic_recipe_white_24px"
+        app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
+        app:title="Create New Recipe"
+        app:titleMarginStart="24dp"
+        app:titleTextColor="@android:color/white" />
 
-    <EditText
-        android:id="@+id/edit_text_ready_in_minutes"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@android:color/white"
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ready In Minutes"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/edit_text_servings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Servings"
-        android:inputType="text" />
-
-    <Button
-        android:id="@+id/recipe_button_new_ingredient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#C685F5"
-        android:text="New Ingredient" />
-
-    <Button
-        android:id="@+id/recipe_button_new_step"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#B085F5"
-        android:text="New Step" />
-
-    <Button
-        android:id="@+id/recipe_button_save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#9385F5"
-        android:text="Save Recipe" />
-
-    <LinearLayout
-        android:id="@+id/ingredients_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="16dp"
         tools:context=".NewRecipeActivity">
 
+        <EditText
+            android:id="@+id/edit_text_title"
+            style="@style/AppTheme.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/edit_text_ready_in_minutes"
+            style="@style/AppTheme.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ready In Minutes"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edit_text_servings"
+            style="@style/AppTheme.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Servings"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/recipe_button_new_ingredient"
+            style="@style/AppTheme.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/edit_text_servings"
+            android:layout_alignBottom="@+id/edit_text_servings"
+            android:backgroundTint="#C685F5"
+            android:text="Add Ingredient"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/recipe_button_new_step"
+            style="@style/AppTheme.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/edit_text_servings"
+            android:layout_alignBottom="@+id/edit_text_servings"
+            android:layout_toRightOf="@+id/recipe_button_new_ingredient"
+            android:backgroundTint="#B085F5"
+            android:text="Add Step"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/recipe_button_save"
+            style="@style/AppTheme.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#9385F5"
+            android:textColor="@android:color/white"
+            android:text="Save Recipe" />
+
+        <LinearLayout
+            android:id="@+id/ingredients_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".NewRecipeActivity">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/steps_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ingredients_linear_layout"
+            android:orientation="vertical"
+            tools:context=".NewRecipeActivity">
+
+        </LinearLayout>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/steps_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ingredients_linear_layout"
-        android:orientation="vertical"
-        tools:context=".NewRecipeActivity">
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
