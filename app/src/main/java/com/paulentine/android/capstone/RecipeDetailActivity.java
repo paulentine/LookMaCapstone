@@ -92,7 +92,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         mFirestore = FirebaseFirestore.getInstance();
 
         // Get reference to the recipe
-        mRecipeRef = mFirestore.collection("testRecipes").document(recipeId);
+        mRecipeRef = mFirestore.collection("testImgs").document(recipeId);
     }
 
     @Override

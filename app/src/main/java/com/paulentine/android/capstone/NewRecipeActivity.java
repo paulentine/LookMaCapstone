@@ -143,7 +143,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         }
 
         CollectionReference recipesRef = FirebaseFirestore.getInstance()
-                .collection("testRecipes");
+                .collection("testImgs");
 
         recipesRef.add(new Recipe(title, readyInMinutes, servings, extendedIngredients, steps));
 
