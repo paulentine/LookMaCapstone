@@ -27,9 +27,8 @@ public class VoiceFulfillment extends DialogflowApp {
     public ActionResponse repeatStep(ActionRequest request) {
         ResponseBuilder rb = getResponseBuilder(request);
 
-        // How do we pass which recipe we're referring to?
         String stepText = Recipe.currRecipe.readInstruction();
-        rb.add("You said " + stepText);
+        rb.add("Repeating step " + stepText);
         return rb.endConversation().build();
     }
 
@@ -38,7 +37,7 @@ public class VoiceFulfillment extends DialogflowApp {
         ResponseBuilder rb = getResponseBuilder(request);
 
         String stepText = Recipe.currRecipe.nextStep();
-        rb.add("You said "+ stepText);
+        rb.add("Next step "+ stepText);
         return rb.endConversation().build();
     }
 }
