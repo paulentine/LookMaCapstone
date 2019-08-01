@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0E0E0"
+    android:background="@android:color/white"
     tools:context="com.paulentine.android.capstone.RecipeDetailActivity">
 
     <RelativeLayout
@@ -31,9 +31,9 @@
             android:id="@+id/recipe_button_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
             android:layout_alignLeft="@+id/recipe_item_title"
             android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackground"
             app:srcCompat="@drawable/ic_close_white_24px" />
 
         <TextView
@@ -45,18 +45,17 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
-            tools:text="Some Recipe" />
+            tools:text="Recipe Title" />
 
         <TextView
             android:id="@+id/recipe_item_ready_in_minutes"
             style="@style/AppTheme.Subheader"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_above="@+id/recipe_item_helpertext_servings"
             android:layout_alignLeft="@+id/recipe_item_title"
             android:textColor="@android:color/white"
-            tools:text="60"/>
+            tools:text="60" />
 
         <TextView
             android:id="@+id/recipe_item_helpertext_mins"
@@ -65,10 +64,9 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/recipe_item_ready_in_minutes"
             android:layout_alignBottom="@+id/recipe_item_ready_in_minutes"
-            android:layout_marginLeft="4dp"
             android:layout_toRightOf="@+id/recipe_item_ready_in_minutes"
             android:gravity="center"
-            android:text="minutes"
+            android:text=" minutes"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -78,19 +76,8 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/recipe_item_title"
             android:layout_alignBottom="@+id/recipe_image"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Serves:"
-            android:textColor="@android:color/white" />
-
-        <TextView
-            android:id="@+id/recipe_city_divider"
-            style="@style/AppTheme.TextDivider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/recipe_item_helpertext_servings"
-            android:layout_toRightOf="@+id/recipe_item_helpertext_servings"
-            android:text="@string/divider_bullet"
+            android:text="Serves "
             android:textColor="@android:color/white" />
 
         <TextView
@@ -100,7 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/recipe_item_helpertext_servings"
             android:layout_alignTop="@+id/recipe_item_helpertext_servings"
-            android:layout_toRightOf="@+id/recipe_city_divider"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/recipe_item_helpertext_servings"
             android:textColor="@android:color/white"
             tools:text="6" />
 
@@ -109,13 +97,13 @@
             style="@style/AppTheme.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/recipe_item_title"
-            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            tools:text="$$$" />
+            tools:text="id" />
 
     </RelativeLayout>
 
@@ -125,39 +113,70 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/recipe_top_card"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="-28dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="-28dp"
         app:srcCompat="@drawable/ic_add_white_24px" />
 
     <!--Ingredients-->
     <TextView
-        android:id="@+id/recipe_item_ingredient"
-        style="@style/AppTheme.Title"
+        android:id="@+id/recipe_item_helpertext_ingredient"
+        style="@style/AppTheme.Subheader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recipe_top_card"
-        android:textColor="@android:color/white"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="-18dp"
+        android:text="Ingredients:"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/recipe_item_ingredient"
+        style="@style/AppTheme.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recipe_item_helpertext_ingredient"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="22dp"
+        android:textColor="@color/almostBlack"
         android:textStyle="bold"
-        tools:text="Some Recipe" />
+        tools:text="1 cup of sugar" />
 
     <!-- Steps -->
+
     <TextView
-        android:id="@+id/recipe_item_step"
-        style="@style/AppTheme.Title"
+        android:id="@+id/recipe_item_helpertext_step"
+        style="@style/AppTheme.Subheader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recipe_item_ingredient"
-        android:textColor="@android:color/white"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="-18dp"
+        android:text="Steps:"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/recipe_item_step"
+        style="@style/AppTheme.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recipe_item_helpertext_step"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="22dp"
+        android:textColor="@color/almostBlack"
         android:textStyle="bold"
-        tools:text="Some Recipe" />
+        tools:text="Preheat oven to 400F" />
 
     <!-- View for empty steps -->
     <LinearLayout
         android:id="@+id/view_empty_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_below="@+id/recipe_top_card"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:orientation="vertical"
@@ -165,8 +184,8 @@
         tools:visibility="visible">
 
         <ImageView
-            android:src="@drawable/pizza_monster"
-            style="@style/AppTheme.PizzaGuy" />
+            style="@style/AppTheme.PizzaGuy"
+            android:src="@drawable/pizza_monster" />
 
         <TextView
             style="@style/AppTheme.Body1"

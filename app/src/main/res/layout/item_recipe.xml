@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="12dp">
 
     <ImageView
         android:id="@+id/recipe_item_image"
@@ -22,8 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/recipe_item_image"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="-2dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="-6dp"
         android:layout_toLeftOf="@+id/recipe_item_id"
         android:layout_toRightOf="@+id/recipe_item_image"
         android:ellipsize="end"
@@ -32,7 +31,7 @@
 
     <TextView
         android:id="@+id/recipe_item_ready_in_minutes"
-        style="@style/AppTheme.Body1"
+        style="@style/AppTheme.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recipe_item_title"
@@ -42,32 +41,32 @@
 
     <TextView
         android:id="@+id/recipe_item_helpertext_mins"
-        style="@style/AppTheme.Body1"
+        style="@style/AppTheme.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/recipe_item_ready_in_minutes"
+        android:layout_marginLeft="4dp"
         android:layout_toRightOf="@+id/recipe_item_ready_in_minutes"
         android:text="@string/helpertext_mins"
-        tools:text="@string/helpertext_mins"
-        android:layout_marginLeft="4dp"
         android:textColor="@color/greySecondary"
-        android:visibility="visible" />
+        android:visibility="visible"
+        tools:text="@string/helpertext_mins" />
 
     <TextView
         android:id="@+id/recipe_item_helpertext_servings"
-        style="@style/AppTheme.Body1"
+        style="@style/AppTheme.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recipe_item_ready_in_minutes"
         android:layout_alignLeft="@+id/recipe_item_ready_in_minutes"
         android:text="@string/helpertext_servings"
-        tools:text="@string/helpertext_servings"
         android:textColor="@color/greySecondary"
-        android:visibility="visible" />
+        android:visibility="visible"
+        tools:text="@string/helpertext_servings" />
 
     <TextView
         android:id="@+id/recipe_item_servings"
-        style="@style/AppTheme.Body1"
+        style="@style/AppTheme.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/recipe_item_helpertext_servings"

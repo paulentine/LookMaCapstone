@@ -47,6 +47,8 @@ public class NewRecipeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 EditText editText = new EditText(stepsLayout.getContext());
                 editText.setHint("Pre-heat oven to 400F");
+                editText.setTextAppearance(R.style.AppTheme_Body1);
+
                 stepsCount++;
                 Log.d("stepsCount", Integer.toString(stepsCount));
 //                editText.setText("TextView " + String.valueOf(stepsCount));
@@ -69,13 +71,16 @@ public class NewRecipeActivity extends AppCompatActivity {
 //                ingredientLayout.setPadding(10, 10, 10, 10);
 
                 EditText editAmount = new EditText(ingredientLayout.getContext());
+                editAmount.setTextAppearance(R.style.AppTheme_Body1);
                 editAmount.setHint("1");
 
                 EditText editUnit = new EditText(ingredientLayout.getContext());
                 editUnit.setHint("cup");
+                editUnit.setTextAppearance(R.style.AppTheme_Body1);
 
                 EditText editName = new EditText(ingredientLayout.getContext());
                 editName.setHint("water");
+                editName.setTextAppearance(R.style.AppTheme_Body1);
 
                 ingredientLayout.addView(editAmount);
                 ingredientLayout.addView(editUnit);
