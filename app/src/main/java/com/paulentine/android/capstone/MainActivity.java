@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements
 
         // Get the 50 highest rated recipes
         mQuery = mFirestore.collection("demo")
-                .orderBy("title", Query.Direction.DESCENDING)
+                .orderBy("title", Query.Direction.ASCENDING)
                 .limit(LIMIT);
     }
 
@@ -217,6 +217,7 @@ public class MainActivity extends AppCompatActivity implements
         Intent intent = AuthUI.getInstance().createSignInIntentBuilder()
                 .setAvailableProviders(Collections.singletonList(
                         new AuthUI.IdpConfig.EmailBuilder().build()))
+                .setTheme(R.style.AppTheme)
                 .setIsSmartLockEnabled(false)
                 .build();
 

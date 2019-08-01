@@ -161,9 +161,9 @@ public class FilterDialogFragment extends DialogFragment implements View.OnClick
     private Query.Direction getSortDirection() {
         String selected = (String) mSortSpinner.getSelectedItem();
         if (getString(R.string.sort_by_title).equals(selected)) {
-            return Query.Direction.DESCENDING;
+            return Query.Direction.ASCENDING;
         } if (getString(R.string.sort_by_servings).equals(selected)) {
-            return Query.Direction.DESCENDING;
+            return Query.Direction.ASCENDING;
         } if (getString(R.string.sort_by_time).equals(selected)) {
             return Query.Direction.ASCENDING;
         }
