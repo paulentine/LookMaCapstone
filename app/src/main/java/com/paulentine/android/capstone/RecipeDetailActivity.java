@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +37,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.paulentine.android.capstone.model.Step;
+
+import es.dmoral.toasty.Toasty;
 
 public class RecipeDetailActivity extends AppCompatActivity implements
         View.OnClickListener,
@@ -78,7 +81,8 @@ public class RecipeDetailActivity extends AppCompatActivity implements
             @Override
             public void onClick(View v) {
                 Log.d("PAULINE", "THIS IS FROM BUTTON CLICKED");
-                recipeModel.nextStep();
+                String text = recipeModel.nextStep();
+                Toasty.warning(RecipeDetailActivity.this, text, Toast.LENGTH_LONG, false).show();
             }
         });
 

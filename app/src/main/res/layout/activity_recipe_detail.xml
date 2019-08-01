@@ -16,14 +16,14 @@
         <ImageView
             android:id="@+id/recipe_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:alpha="1.0"
             android:scaleType="centerCrop"
             tools:src="@drawable/food_1" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:background="@drawable/gradient_up" />
 
         <!-- Back button -->
